@@ -4,7 +4,12 @@
 
 <div class="album py-2 bg-light">
     <div class="container">
-
+        <form asp-controller="Guarentee" asp-action="DetailsBySerialNumber">
+            <p>
+                Поиск по серийному номеру: <input type="text" name="SerialNumber" />
+                <input type="submit" value="Поиск" />
+            </p>
+        </form>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach(var item in Model)
             {

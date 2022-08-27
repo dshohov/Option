@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OptionWebApplication.Data;
+using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
 
 namespace OptionWebApplication.Controllers
@@ -7,9 +8,12 @@ namespace OptionWebApplication.Controllers
     public class GuarenteeController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public GuarenteeController(ApplicationDbContext context)
+        private readonly IGuarenteeRepository _guarenteeRepository;
+        public GuarenteeController(ApplicationDbContext context, IGuarenteeRepository guarenteeRepository)
         {
             _context = context;
+            _guarenteeRepository = guarenteeRepository;
+
         }
         public IActionResult Index()
         {
@@ -20,6 +24,11 @@ namespace OptionWebApplication.Controllers
         {
             Guarentee guarentee = _context.Guarentes.FirstOrDefault(c => c.Id == id);
             return View(guarentee);
+        }
+        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
+        {
+            Guarentee guarenteebyserialnumber = await _guarenteeRepository.GetGuarenteeBySerialNumber(serialnumber);
+            return View(guarenteebyserialnumber);
         }
     }
 }

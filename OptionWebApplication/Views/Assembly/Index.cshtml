@@ -1,30 +1,35 @@
 ﻿@model IEnumerable<Assembly>
 
-
 <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-danger text-white mb-3 btn-outline-secondary">Назад</a>  
 
 <div class="album py-2 bg-light">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <form asp-controller="Assembly" asp-action="DetailsBySerialNumber">
+            <p>
+                Поиск по серийному номеру: <input type="text" name="SerialNumber" />
+                <input type="submit" value="Поиск" />
+            </p>
+        </form>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             @foreach(var item in Model)
             {
                 <div class="col">
-                  <div class="card shadow-sm">
-                    <div class="card-body">
-                      <p class="card-text">Серийный номер: @item.SerialNumber</p>
-                      <p class="card-text">Тип устройства: @item.TypeDevice</p>
-                      <p class="card-text">Работы: @item.Steps</p>
-                      <p class="card-text">Люди которые работали над устройством: @item.People</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <a asp-controller="Assembly" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Детали</a>
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">Серийный номер: @item.SerialNumber</p>
+                            <p class="card-text">Тип устройства: @item.TypeDevice</p>
+                            <p class="card-text">Работы: @item.Steps</p>
+                            <p class="card-text">Люди которые работали над устройством: @item.People</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-controller="Assembly" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Детали</a>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
             }
-      </div>
+        </div>
     </div>
   </div>

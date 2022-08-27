@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Assembly/DetailsBySerialNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcRGV0YWlsc0J5U2VyaWFsTnVtYmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Assembly/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -27,8 +31,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Guarentee/DetailsBySerialNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXERldGFpbHNCeVNlcmlhbE51bWJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Guarentee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Home/ADetailsBySerialNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBRGV0YWlsc0J5U2VyaWFsTnVtYmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Home/GDetailsBySerialNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHRGV0YWlsc0J5U2VyaWFsTnVtYmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/Pizzeria/OptionWebApplication/OptionWebApplication/Views/Home/Index.cshtml]

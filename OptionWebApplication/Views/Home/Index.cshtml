@@ -4,6 +4,12 @@
 
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
+        <form asp-controller="Home" asp-action="DetailsBySerialNumber">
+            <p>
+                Поиск по серийному номеру: <input type="text" name="SerialNumber" />
+                <input type="submit" value="Поиск" />
+            </p>
+        </form>
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Option</h1>
         <p class="lead text-muted">Выберите раздел</p>
