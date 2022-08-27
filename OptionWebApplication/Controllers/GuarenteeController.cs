@@ -16,5 +16,10 @@ namespace OptionWebApplication.Controllers
             List<Guarentee> guarentees = _context.Guarentes.ToList();
             return View(guarentees);
         }
+        public IActionResult Detail(int id)
+        {
+            Guarentee guarentee = _context.Guarentes.FirstOrDefault(c => c.Id == id);
+            return View(guarentee);
+        }
     }
 }
