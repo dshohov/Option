@@ -51,5 +51,22 @@ namespace OptionWebApplication.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var assembly = await _assemblyRepository.GetByIdAsync(id);
+            if(assembly == null) return View("Error");
+            return View(assembly);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteAssembly(int id)
+        {
+            var assembly = await _assemblyRepository.GetByIdAsync(id);
+            if (assembly == null) return View("Error");
+            
+            _assemblyRepository.Delete(assembly);
+            return RedirectToAction("Index");
+
+        }
     }
 }

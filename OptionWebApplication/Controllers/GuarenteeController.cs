@@ -49,5 +49,23 @@ namespace OptionWebApplication.Controllers
             _guarenteeRepository.Add(guarentee);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var guarentee = await _guarenteeRepository.GetByIdAsync(id);
+            if (guarentee == null) return View("Error");
+            return View(guarentee);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteGuarentee(int id)
+        {
+            var guarentee = await _guarenteeRepository.GetByIdAsync(id);
+            if (guarentee == null) return View("Error");
+
+            _guarenteeRepository.Delete(guarentee);
+            return RedirectToAction("Index");
+
+        }
     }
 }

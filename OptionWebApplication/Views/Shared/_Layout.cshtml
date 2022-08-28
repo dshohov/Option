@@ -27,6 +27,12 @@
                         </li>
                     </ul>
                 </div>
+                <form asp-controller="Home" asp-action="DetailsBySerialNumber">
+                    <p>
+                        Поиск по серийному номеру: <input type="text" name="SerialNumber" />
+                        <input type="submit" value="Поиск" />
+                    </p>
+                </form>
             </div>
         </nav>
     </header>

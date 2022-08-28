@@ -1,12 +1,7 @@
 ﻿@model IEnumerable<Guarentee>
 
-<form asp-controller="Home" asp-action="DetailsBySerialNumber">
-    <p>
-        Поиск по серийному номеру: <input type="text" name="SerialNumber" />
-        <input type="submit" value="Поиск" />
-    </p>
-</form>
-<a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-danger text-white mb-3 btn-outline-secondary">Назад</a>  
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-warning text-white mb-3 btn-outline-secondary">Назад</a>  
 <a asp-controller="Guarentee" asp-action="Create" class="btn btn-sm btn-info text-white mb-3 btn-outline-secondary">Создать Гарантию</a>
 
 <div class="album py-2 bg-light">
@@ -25,8 +20,9 @@
                       <p class="card-text">Заключение: @item.Conclusion</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <a asp-controller="Guarentee" asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Детали</a>
+                          <a asp-controller="Guarentee" asp-action="Detail" asp-route-id="@item.Id" class="text-white btn btn-primary btn-sm btn-outline-secondary">Детали</a>
                           <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                          <a asp-controller="Guarentee" asp-action="Delete" asp-route-id="@item.Id" class="text-white btn btn-sm btn-danger btn-outline-secondary">Удалить</a>
                         </div>
                       </div>
                     </div>

@@ -8,7 +8,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-danger mb-3 text-white btn-outline-secondary">Назад</a>
+            <a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
+            <h1>Сборка</h1>
             <h3 class="my-3">Серийный номер: @Model.SerialNumber</h3>
             <p>Тип девайса: @Model.TypeDevice</p>
             <h3 class="my-3">Подробности</h3>
@@ -21,3 +22,4 @@
         </div>
     </div>
 </div>
+<a asp-controller="Assembly" asp-action="Delete" asp-route-id="@Model.Id" class="text-white btn btn-danger btn-sm btn-outline-secondary">Удалить</a>

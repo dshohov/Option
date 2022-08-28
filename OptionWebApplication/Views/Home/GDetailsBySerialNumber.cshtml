@@ -8,7 +8,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <a asp-controller="Guarentee" asp-action="Index" class="btn btn-sm btn-danger text-white mb-3 btn-outline-secondary">Назад</a>  
+            <a asp-controller="Guarentee" asp-action="Index" class="btn btn-sm btn-warning text-white mb-3 btn-outline-secondary">Назад</a>  
+            <h1>Гарантия</h1>
             <h3 class="my-3">Серийный номер: @Model.SerialNumber</h3>
             <p>Тип девайса: @Model.TypeDevice</p>
             <h3 class="my-3">Подробности</h3>
@@ -25,3 +26,4 @@
         </div>
     </div>
 </div>
+<a asp-controller="Guarentee" asp-action="Delete" asp-route-id="@Model.Id" class="btn text-white btn-danger btn-sm btn-outline-secondary">Удалить</a>
