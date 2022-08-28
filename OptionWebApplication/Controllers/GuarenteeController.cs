@@ -2,6 +2,7 @@
 using OptionWebApplication.Data;
 using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
+using OptionWebApplication.ViewModels;
 
 namespace OptionWebApplication.Controllers
 {
@@ -66,6 +67,54 @@ namespace OptionWebApplication.Controllers
             _guarenteeRepository.Delete(guarentee);
             return RedirectToAction("Index");
 
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var guarentee = await _guarenteeRepository.GetByIdAsync(id);
+            if (guarentee == null) return View("Error");
+            var guarenteeVM = new EditGuarenteeViewModel
+            {
+                SerialNumber = guarentee.SerialNumber,
+                TypeDevice = guarentee.TypeDevice,
+                DateIn = guarentee.DateIn,
+                DateOut = guarentee.DateOut,
+                Details = guarentee.Details,
+                FaultDetection = guarentee.FaultDetection,
+                Conclusion = guarentee.Conclusion,
+                DiagnosticPeople = guarentee.DiagnosticPeople,
+                ComplectedWork = guarentee.ComplectedWork,
+                RepairPeople = guarentee.RepairPeople
+            };
+            return View(guarenteeVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditGuarenteeViewModel guarenteeVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Failed to edit club");
+                return View("Edit", guarenteeVM);
+            }
+
+            var guarentee = new Guarentee
+            {
+                Id = id,
+                SerialNumber = guarenteeVM.SerialNumber,
+                TypeDevice = guarenteeVM.TypeDevice,
+                DateIn = guarenteeVM.DateIn,
+                DateOut = guarenteeVM.DateOut,
+                Details = guarenteeVM.Details,
+                FaultDetection = guarenteeVM.FaultDetection,
+                Conclusion = guarenteeVM.Conclusion,
+                DiagnosticPeople = guarenteeVM.DiagnosticPeople,
+                ComplectedWork = guarenteeVM.ComplectedWork,
+                RepairPeople = guarenteeVM.RepairPeople
+            };
+
+            _guarenteeRepository.Update(guarentee);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using OptionWebApplication.Data;
 using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
+using OptionWebApplication.ViewModels;
 
 namespace OptionWebApplication.Controllers
 {
@@ -67,6 +68,46 @@ namespace OptionWebApplication.Controllers
             _assemblyRepository.Delete(assembly);
             return RedirectToAction("Index");
 
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var assembly = await _assemblyRepository.GetByIdAsync(id);
+            if (assembly == null) return View("Error");
+            var assemblyVM = new EditAssemblyViewModel
+            {
+                SerialNumber = assembly.SerialNumber,
+                TypeDevice = assembly.TypeDevice,
+                ChangeComponents = assembly.ChangeComponents,
+                OtherWork = assembly.OtherWork,
+                Steps = assembly.Steps,
+                People = assembly.People
+            };
+            return View(assemblyVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditAssemblyViewModel assemblyVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "Failed to edit club");
+                return View("Edit", assemblyVM);
+            }
+            
+            var assembly = new Assembly
+            {
+                Id = id,
+                SerialNumber = assemblyVM.SerialNumber,
+                TypeDevice = assemblyVM.TypeDevice,
+                ChangeComponents = assemblyVM.ChangeComponents,
+                OtherWork = assemblyVM.OtherWork,
+                Steps = assemblyVM.Steps,
+                People = assemblyVM.People
+            };
+
+            _assemblyRepository.Update(assembly);
+            return RedirectToAction("Index");
         }
     }
 }

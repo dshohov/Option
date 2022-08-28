@@ -1,14 +1,20 @@
-﻿@model Guarentee
-<a asp-controller="Guarentee" asp-action="Index" class="btn btn-sm btn-warning text-white mb-3 btn-outline-secondary">Назад</a> 
-<form method="post" asp-action="Create">
+﻿@using OptionWebApplication.ViewModels
+@model EditGuarenteeViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<a asp-controller="Guarentee" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
     <div class="form-group">
-        <label asp-for="SerialNumber">Серийный номер: </label>
-        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="6" placeholder="111111"/>
-        <span asp-validation-for="SerialNumber" class="text-danger"></span> 
+        <label asp-for="SerialNumber">SerialNumber</label>
+        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="6" placeholder="SerialNumber">
+        <span asp-validation-for="SerialNumber" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="TypeDevice">Тип девайса: </label>
-        <input asp-for="TypeDevice" class="form-control" placeholder="Персональный компьютер"/>
+        <label asp-for="TypeDevice">TypeDevice</label>
+        <input asp-for="TypeDevice" class="form-control" placeholder="TypeDevice">
         <span asp-validation-for="TypeDevice" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -51,5 +57,5 @@
         <input asp-for="RepairPeople" class="form-control" placeholder="Петров"/>
         <span asp-validation-for="RepairPeople" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Создать</button>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>
