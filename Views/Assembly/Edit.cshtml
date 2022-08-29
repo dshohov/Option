@@ -1,4 +1,5 @@
-﻿@using OptionWebApplication.ViewModels
+﻿@using OptionWebApplication.Data.Enum
+@using OptionWebApplication.ViewModels
 @model EditAssemblyViewModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,28 +10,68 @@
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="SerialNumber">Серийный номер: </label>
-        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="6" placeholder="SerialNumber">
+        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="10" >
         <span asp-validation-for="SerialNumber" class="text-danger"></span>
+
     </div>
-    <div class="form-group">
-        <label asp-for="TypeDevice">Тип девайса</label>
-        <input asp-for="TypeDevice" class="form-control" placeholder="TypeDevice">
+   <div class="form-group">
+        <label asp-for="TypeDevice">Тип девайса: </label>
+        <input asp-for="TypeDevice" class="form-control" placeholder="Персональный компьютер"/>
         <span asp-validation-for="TypeDevice" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ChangeComponents">Замена комплектующих</label>
-        <input asp-for="ChangeComponents" class="form-control" placeholder="ChangeComponents">
+        <label asp-for="Company">Компания: </label>
+        <input asp-for="Company" class="form-control" />
+        <span asp-validation-for="Company" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChangeComponents">Замена комплектующих: </label>
+        <input asp-for="ChangeComponents" class="form-control" placeholder="Материнская плата"/>
         <span asp-validation-for="ChangeComponents" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="OtherWork">Другие работы</label>
-        <input asp-for="OtherWork" class="form-control" placeholder="OtherWork">
+        <label asp-for="OtherWork">Другие работы: </label>
+        <input asp-for="OtherWork" class="form-control" placeholder="Установка EfiShell"/>
         <span asp-validation-for="OtherWork" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="People">Люди участвовавшие в сборке: </label>
-        <input asp-for="People" class="form-control" placeholder="People">
-        <span asp-validation-for="People" class="text-danger"></span>
+      <h3>Этапы сборки</h3>
+        <label asp-for="Step1">1</label>
+        <input asp-for="Step1" class="form-control"/>
+        <span asp-validation-for="Step1" class="text-danger"></span>
+        <label asp-for="Step2">2</label>
+        <input asp-for="Step2" class="form-control"/>
+        <label asp-for="Step3">3</label>
+        <input asp-for="Step3" class="form-control"/>
+        <label asp-for="Step4">4</label>
+        <input asp-for="Step4" class="form-control"/>
+        <label asp-for="Step5">5</label>
+        <input asp-for="Step5" class="form-control"/>
+    </div>
+    
+    <div class="form-group">
+        <h3>Ответственные лица: </h3>
+        <label asp-for="People1">1</label>
+        <select asp-for="People1" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
+        <span asp-validation-for="People1" class="text-danger"></span>
+        <label asp-for="People2">2</label>
+        <select asp-for="People2" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
+        <label asp-for="People3">3</label>
+        <select asp-for="People3" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
+        <label asp-for="People4">4</label>
+        <select asp-for="People4" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
+        <label asp-for="People5">5</label>
+        <select asp-for="People5" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
 </form>

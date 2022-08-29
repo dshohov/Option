@@ -33,15 +33,47 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("ChangeComponents")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OtherWork")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("People")
+                    b.Property<string>("Company")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SerialNumber")
+                    b.Property<string>("OtherWork")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("People1")
                         .HasColumnType("int");
+
+                    b.Property<int?>("People2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("People3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("People4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("People5")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step5")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeDevice")
                         .IsRequired()
@@ -75,19 +107,18 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiagnosticPeople")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DiagnosticPeople")
+                        .HasColumnType("int");
 
                     b.Property<string>("FaultDetection")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RepairPeople")
+                    b.Property<int>("RepairPeople")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SerialNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SerialNumber")
-                        .HasColumnType("int");
 
                     b.Property<string>("TypeDevice")
                         .IsRequired()

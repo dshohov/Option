@@ -15,11 +15,21 @@ namespace OptionWebApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SerialNumber = table.Column<int>(type: "int", nullable: false),
+                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TypeDevice = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ChangeComponents = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OtherWork = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    People = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Step1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Step2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Step3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Step4 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Step5 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    People1 = table.Column<int>(type: "int", nullable: false),
+                    People2 = table.Column<int>(type: "int", nullable: true),
+                    People3 = table.Column<int>(type: "int", nullable: true),
+                    People4 = table.Column<int>(type: "int", nullable: true),
+                    People5 = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,16 +42,16 @@ namespace OptionWebApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SerialNumber = table.Column<int>(type: "int", nullable: false),
+                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TypeDevice = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateOut = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Details = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FaultDetection = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Conclusion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiagnosticPeople = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiagnosticPeople = table.Column<int>(type: "int", nullable: false),
                     ComplectedWork = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RepairPeople = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    RepairPeople = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

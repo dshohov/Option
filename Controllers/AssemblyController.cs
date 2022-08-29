@@ -33,7 +33,7 @@ namespace OptionWebApplication.Controllers
             return View(assembly);
         }
         //Search within an assembly(Поиск внутри сборки)
-        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
+        public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
         {
             Assembly assemblybyserialnumber = await _assemblyRepository.GetAssemblyBySerialNumber(serialnumber);
             return View(assemblybyserialnumber);
@@ -83,7 +83,17 @@ namespace OptionWebApplication.Controllers
                 TypeDevice = assembly.TypeDevice,
                 ChangeComponents = assembly.ChangeComponents,
                 OtherWork = assembly.OtherWork,
-                People = assembly.People
+                Company = assembly.Company,
+                Step1 = assembly.Step1,
+                Step2 = assembly.Step2,
+                Step3 = assembly.Step3,
+                Step4 = assembly.Step4,
+                Step5 = assembly.Step5,
+                People1 = assembly.People1,
+                People2 = assembly.People2,
+                People3 = assembly.People3,
+                People4 = assembly.People4,
+                People5 = assembly.People5
             };
             return View(assemblyVM);
         }
@@ -104,7 +114,17 @@ namespace OptionWebApplication.Controllers
                 TypeDevice = assemblyVM.TypeDevice,
                 ChangeComponents = assemblyVM.ChangeComponents,
                 OtherWork = assemblyVM.OtherWork,
-                People = assemblyVM.People
+                Company = assemblyVM.Company,
+                Step1 = assemblyVM.Step1,
+                Step2 = assemblyVM.Step2,
+                Step3 = assemblyVM.Step3,
+                Step4 = assemblyVM.Step4,
+                Step5 = assemblyVM.Step5,
+                People1 = assemblyVM.People1,
+                People2 = assemblyVM.People2,
+                People3 = assemblyVM.People3,
+                People4 = assemblyVM.People4,
+                People5 = assemblyVM.People5
             };
 
             _assemblyRepository.Update(assembly);
