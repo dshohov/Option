@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Assembly>
+
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-warning text-white mb-3 btn-outline-secondary">Назад</a>  
+<a asp-controller="Assembly" asp-action="Create" class="btn btn-sm btn-info text-white mb-3 btn-outline-secondary">Создать Сборку</a>
+
+<div class="album py-2 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach(var item in Model)
+            {
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">Серийный номер: @item.SerialNumber</p>
+                            <p class="card-text">Тип устройства: @item.TypeDevice</p>
+                            <p class="card-text">Люди, которые работали над устройством: @item.People</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-controller="Assembly" asp-action="Detail" asp-route-id="@item.Id" class="border-3 btn btn-outline-primary btn-sm ">Детали</a>
+                                    <a asp-controller="Assembly" asp-action="Edit" asp-route-id="@item.Id" class="border-3 btn btn-sm btn-outline-warning ">Изменить</a>
+                                    <a asp-controller="Assembly" asp-action="Delete" asp-route-id="@item.Id" class="border-3 btn btn-sm btn-outline-danger ">Удалить</a>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+  </div>

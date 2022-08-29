@@ -1,0 +1,31 @@
+﻿@model Assembly
+<a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a> 
+
+<form method="post" asp-action="Create">
+    <div class="form-group">
+        <label asp-for="SerialNumber">Серийный номер: </label>
+        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="6" placeholder="111111"/>
+        <span asp-validation-for="SerialNumber" class="text-danger"></span> 
+    </div>
+    <div class="form-group">
+        <label asp-for="TypeDevice">Тип девайса: </label>
+        <input asp-for="TypeDevice" class="form-control" placeholder="Персональный компьютер"/>
+        <span asp-validation-for="TypeDevice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChangeComponents">Замена комплектующих: </label>
+        <input asp-for="ChangeComponents" class="form-control" placeholder="Материнская плата"/>
+        <span asp-validation-for="ChangeComponents" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="OtherWork">Другие работы: </label>
+        <input asp-for="OtherWork" class="form-control" placeholder="Установка EfiShell"/>
+        <span asp-validation-for="OtherWork" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="People">Люди участвовавшие в сборке: </label>
+        <input asp-for="People" class="form-control" placeholder="Работник"/>
+        <span asp-validation-for="People" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Создать</button>
+</form>
