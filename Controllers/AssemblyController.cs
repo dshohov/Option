@@ -1,5 +1,10 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using iTextSharp.tool.xml.html;
+using iTextSharp.tool.xml.pipeline.css;
+using iTextSharp.tool.xml.pipeline.end;
+using iTextSharp.tool.xml.pipeline.html;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +13,8 @@ using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
 using OptionWebApplication.Repository;
 using OptionWebApplication.ViewModels;
+using System.Collections.Specialized;
+using System.Net;
 
 namespace OptionWebApplication.Controllers
 {
@@ -134,21 +141,25 @@ namespace OptionWebApplication.Controllers
         {
             var assembly = await _assemblyRepository.GetByIdAsync(id);
 
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Test.pdf", FileMode.Create));
-            doc.Open();
-            Paragraph paragraph = new Paragraph("This is my 23 line using Paragraph. \n hi World");
-            doc.Add(paragraph);
+            string apiKey = "a6d14f98ebb19243bda67788c082ec83"; //получить можно тут: http://www.pdf4b.ru/register
+            string value = "Pdf.cshtml"; //может быть HTML или URL, начинающийся с http://...
 
-            List list = new List(List.UNORDERED);
-            list.Add(new ListItem("One"));
-            list.Add(assembly.TypeDevice);
-            list.Add("Three");
-            list.Add("Four");
-            list.Add("Five");
-            list.Add(new ListItem("One"));
-            doc.Add(list);
-            doc.Close();
+            using (var client = new WebClient())
+            {
+                //Используем параметры для доступа к API
+                NameValueCollection options = new NameValueCollection();
+                options.Add("apikey", apiKey);
+                options.Add("value", value);
+
+                //Вызов API для преобразования HTML в PDF
+                MemoryStream ms = new MemoryStream(client.UploadValues("http://api.pdf4b.ru/pdf", options));
+
+                //Предлагаем пользователю скачать и сохранить файл, или комментируем строку, чтобы открыть просто в броузере
+                //HttpContext.Response.AddHeader("content-disposition", "attachment; filename=my-file.pdf");
+
+                //Отдаем готовый файл PDF
+                return new FileStreamResult(ms, "application/pdf");
+            }
             return View();
         }
     }

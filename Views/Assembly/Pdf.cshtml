@@ -1,5 +1,23 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<asp:Panel runat="server" ID="PendingOrdersPanel">
+ <!-- to be shown on PDF-->
+ <table style="border-spacing: 0;border-collapse: collapse;width:100%;display:none;" >
+ <tr><td><img src="abc.com/webimages/logo1.png" style="display: none;" width="230" /></td></tr>
+<tr style="line-height:10px;height:10px;"><td style="display:none;font-size:9px;color:#10466E;padding:0px;text-align:right;">blablabla.</td></tr>
+ <tr style="line-height:10px;height:10px;"><td style="display:none;font-size:9px;color:#10466E;padding:0px;text-align:right;">blablabla.</td></tr>
+ <tr style="line-height:10px;height:10px;"><td style="display:none;font-size:9px;color:#10466E;padding:0px;text-align:right;">blablabla</td></tr>
+<tr style="line-height:10px;height:10px;"><td style="display:none;font-size:9px;color:#10466E;padding:0px;text-align:right;">blablabla</td></tr>
+<tr style="line-height:10px;height:10px;"><td style="display:none;font-size:11px;color:#10466E;padding:0px;text-align:center;"><i>blablabla</i> Pending orders report<br /></td></tr>
+ </table>
+<asp:GridView runat="server" ID="PendingOrdersGV" RowStyle-Wrap="false" AllowPaging="true" PageSize="10" Width="100%" CssClass="Grid" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="false"
+   PagerStyle-CssClass="pgr" HeaderStyle-ForeColor="White" PagerStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" RowStyle-HorizontalAlign="Center" DataKeyNames="Document#" 
+      OnPageIndexChanging="PendingOrdersGV_PageIndexChanging" OnRowDataBound="PendingOrdersGV_RowDataBound" OnRowCommand="PendingOrdersGV_RowCommand">
+   <EmptyDataTemplate><div style="text-align:center;">no records found</div></EmptyDataTemplate>
+    <Columns>                                           
+     <asp:ButtonField CommandName="PendingOrders_Details" DataTextField="Document#" HeaderText="Document #" SortExpression="Document#" ItemStyle-ForeColor="Black" ItemStyle-Font-Underline="true"/>
+      <asp:BoundField DataField="Order#" HeaderText="order #" SortExpression="Order#"/>
+     <asp:BoundField DataField="Order Date" HeaderText="Order Date" SortExpression="Order Date" DataFormatString="{0:d}"></asp:BoundField> 
+    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status"></asp:BoundField>
+    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" DataFormatString="{0:C2}"></asp:BoundField> 
+   </Columns>
+    </asp:GridView>
+</asp:Panel>
