@@ -4,7 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using OptionWebApplication.Data;
 using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
+using OptionWebApplication.Repository;
 using OptionWebApplication.ViewModels;
+using System.Collections.Specialized;
+using System.Net;
+using PdfSharp.Pdf;
+using System.Diagnostics;
+using System.Drawing;
+using PdfSharp.Drawing;
 
 namespace OptionWebApplication.Controllers
 {
@@ -30,7 +37,7 @@ namespace OptionWebApplication.Controllers
             return View(assembly);
         }
         //Search within an assembly(Поиск внутри сборки)
-        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
+        public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
         {
             Assembly assemblybyserialnumber = await _assemblyRepository.GetAssemblyBySerialNumber(serialnumber);
             return View(assemblybyserialnumber);
@@ -80,8 +87,17 @@ namespace OptionWebApplication.Controllers
                 TypeDevice = assembly.TypeDevice,
                 ChangeComponents = assembly.ChangeComponents,
                 OtherWork = assembly.OtherWork,
-                Steps = assembly.Steps,
-                People = assembly.People
+                Company = assembly.Company,
+                Step1 = assembly.Step1,
+                Step2 = assembly.Step2,
+                Step3 = assembly.Step3,
+                Step4 = assembly.Step4,
+                Step5 = assembly.Step5,
+                People1 = assembly.People1,
+                People2 = assembly.People2,
+                People3 = assembly.People3,
+                People4 = assembly.People4,
+                People5 = assembly.People5
             };
             return View(assemblyVM);
         }
@@ -102,12 +118,45 @@ namespace OptionWebApplication.Controllers
                 TypeDevice = assemblyVM.TypeDevice,
                 ChangeComponents = assemblyVM.ChangeComponents,
                 OtherWork = assemblyVM.OtherWork,
-                Steps = assemblyVM.Steps,
-                People = assemblyVM.People
+                Company = assemblyVM.Company,
+                Step1 = assemblyVM.Step1,
+                Step2 = assemblyVM.Step2,
+                Step3 = assemblyVM.Step3,
+                Step4 = assemblyVM.Step4,
+                Step5 = assemblyVM.Step5,
+                People1 = assemblyVM.People1,
+                People2 = assemblyVM.People2,
+                People3 = assemblyVM.People3,
+                People4 = assemblyVM.People4,
+                People5 = assemblyVM.People5
             };
 
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
         }
+        public async Task<IActionResult> Pdf(int id)
+        {
+            var assembly = await _assemblyRepository.GetByIdAsync(id);
+
+            //Create PDF Document
+            PdfDocument document = new PdfDocument();
+            //You will have to add Page in PDF Document
+            PdfPage page = document.AddPage();
+            //For drawing in PDF Page you will nedd XGraphics Object
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            //For Test you will have to define font to be used
+            XFont font = new XFont("Verdana", 10, XFontStyle.Bold);
+            //Finally use XGraphics & font object to draw text in PDF Page
+            gfx.DrawString(assembly.SerialNumber, font, XBrushes.Black,
+            new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+            //Specify file name of the PDF file
+            string filename = "FirstPDFDocument.pdf";
+            //Save PDF File
+            document.Save(filename);
+            
+
+            return View();
+        }
     }
 }
+ 

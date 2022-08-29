@@ -12,7 +12,7 @@ using OptionWebApplication.Data;
 namespace OptionWebApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220826164411_InitialCreate")]
+    [Migration("20220829105031_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,22 +33,48 @@ namespace OptionWebApplication.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ChangeComponents")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Company")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OtherWork")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("People")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SerialNumber")
+                    b.Property<int>("People1")
                         .HasColumnType("int");
 
-                    b.Property<string>("Steps")
+                    b.Property<int?>("People2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("People3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("People4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("People5")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SerialNumber")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Step5")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeDevice")
@@ -69,11 +95,9 @@ namespace OptionWebApplication.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ComplectedWork")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Conclusion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateIn")
@@ -83,23 +107,20 @@ namespace OptionWebApplication.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Details")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiagnosticPeople")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DiagnosticPeople")
+                        .HasColumnType("int");
 
                     b.Property<string>("FaultDetection")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RepairPeople")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SerialNumber")
+                    b.Property<int>("RepairPeople")
                         .HasColumnType("int");
+
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeDevice")
                         .IsRequired()

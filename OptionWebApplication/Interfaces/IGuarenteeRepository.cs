@@ -6,7 +6,7 @@ namespace OptionWebApplication.Interfaces
     {
         Task<IEnumerable<Guarentee>> GetAll();
         Task<Guarentee> GetByIdAsync(int id);
-        Task<Guarentee> GetGuarenteeBySerialNumber(int serialnumber);
+        Task<Guarentee> GetGuarenteeBySerialNumber(string serialnumber);
         bool Add(Guarentee guarentee);
         bool Update(Guarentee guarentee);
         bool Delete(Guarentee guarentee);

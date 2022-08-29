@@ -35,7 +35,7 @@ namespace OptionWebApplication.Repository
             return await _context.Guarentes.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public async Task<Guarentee> GetGuarenteeBySerialNumber(int serialnumber)
+        public async Task<Guarentee> GetGuarenteeBySerialNumber(string serialnumber)
         {
             return await _context.Guarentes.FirstOrDefaultAsync(i => i.SerialNumber == serialnumber);
         }

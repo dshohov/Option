@@ -3,6 +3,8 @@ using OptionWebApplication.Data;
 using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
 using System.Linq;
+using System.IO;
+
 
 namespace OptionWebApplication.Repository
 {
@@ -36,7 +38,7 @@ namespace OptionWebApplication.Repository
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public async Task<Assembly> GetAssemblyBySerialNumber(int serialnumber)
+        public async Task<Assembly> GetAssemblyBySerialNumber(string serialnumber)
         {
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.SerialNumber == serialnumber);   
         }
@@ -52,5 +54,7 @@ namespace OptionWebApplication.Repository
             _context.Update(assembly);
             return Save();
         }
+
+        
     }
 }

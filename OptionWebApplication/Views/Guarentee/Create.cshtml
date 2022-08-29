@@ -1,4 +1,5 @@
-﻿@model Guarentee
+﻿@using OptionWebApplication.Data.Enum
+@model Guarentee
 <a asp-controller="Guarentee" asp-action="Index" class="btn btn-sm btn-warning text-white mb-3 btn-outline-secondary">Назад</a> 
 <form method="post" asp-action="Create">
     <div class="form-group">
@@ -38,7 +39,9 @@
     </div>
     <div class="form-group">
         <label asp-for="DiagnosticPeople">Диагностику провел: </label>
-        <input asp-for="DiagnosticPeople" class="form-control" placeholder="Иванов"/>
+        <select asp-for="DiagnosticPeople" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
         <span asp-validation-for="DiagnosticPeople" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -46,9 +49,12 @@
         <input asp-for="ComplectedWork" class="form-control" placeholder="Замена оперативной памяти, чистка корпуса от пыли"/>
         <span asp-validation-for="ComplectedWork" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="RepairPeople">Ремонт провел: </label>
-        <input asp-for="RepairPeople" class="form-control" placeholder="Петров"/>
+        <select asp-for="RepairPeople" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
+            <option></option>
+        </select>
         <span asp-validation-for="RepairPeople" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary mt-2">Создать</button>

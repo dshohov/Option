@@ -19,12 +19,12 @@ namespace OptionWebApplication.Data
                     {
                         new Assembly()
                         {
-                            SerialNumber = 111111,
+                            SerialNumber = "111111",
                             TypeDevice = "Компьютер",
                             ChangeComponents = "Материнская плата",
                             OtherWork = "Гравировка",
-                            Steps = "Полная сборка",
-                            People = "Дмитрий"
+                            Step1 = "Full",
+                            People1 = Enum.People.Дмитрий1
                         }
                     });
                     context.SaveChanges();
@@ -36,17 +36,17 @@ namespace OptionWebApplication.Data
                     {
                         new Guarentee()
                         {
-                            SerialNumber = 222222,
+                            SerialNumber = "222222",
                             TypeDevice = "Компьютер",
                             DateIn = new DateTime(2022,08,26),
                             DateOut = new DateTime(2022,08,30),
                             Details = "Не включаеться",
                             FaultDetection = "Материнская плата не работает",
                             Conclusion = "Замена материнской платы по гарантии",
-                            DiagnosticPeople = "Дмитрий 1",
+                            DiagnosticPeople = Enum.People.Дмитрий1,
                             ComplectedWork = "Замена метринской платы, замена термопасты, чистка от пыли",
-                            RepairPeople = "Дмитрий 2"
-                            
+                            RepairPeople = Enum.People.Дмитрий1
+
                         }
                     });
                     context.SaveChanges();
