@@ -63,3 +63,9 @@ C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Deb
 C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\PdfSharp.dll
 C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\de\PdfSharp.Charting.resources.dll
 C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\de\PdfSharp.resources.dll
+C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\MigraDoc.DocumentObjectModel.dll
+C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\MigraDoc.Rendering.dll
+C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\MigraDoc.RtfRendering.dll
+C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\de\MigraDoc.DocumentObjectModel.resources.dll
+C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\de\MigraDoc.Rendering.resources.dll
+C:\Users\User\Desktop\Pizzeria\OptionWebApplication\OptionWebApplication\bin\Debug\net6.0\de\MigraDoc.RtfRendering.resources.dll

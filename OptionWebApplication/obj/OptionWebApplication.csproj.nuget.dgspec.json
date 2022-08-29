@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[6.0.8, )"
             },
+            "PDFsharp-MigraDoc": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
+            },
             "PdfSharp": {
               "target": "Package",
               "version": "[1.50.5147, )"

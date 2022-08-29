@@ -1,0 +1,11 @@
+﻿@model Assembly
+@{
+    Layout = null;
+}
+<div style="text-align: center; font-family: 'Times New Roman'">
+    <h3 style="font-size:14px">Сопроводительный лист сборки №@Model.Id от @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year</h3>
+    <h2 style="font-size:26px">Компания: @Model.Company <br /></h2>
+    <h4 style="font-size:11px" ">S/N устройств(а):  @Model.SerialNumber<br /><br /> </h4>
+    <h3 style="font-size:11px">Замена комплектующих<br/></h3>
+    <h3 class="my-3">Подробности</h3>
+</div>

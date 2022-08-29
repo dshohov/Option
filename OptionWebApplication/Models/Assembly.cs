@@ -10,6 +10,7 @@ namespace OptionWebApplication.Models
         public string SerialNumber { get; set; }
         public string Company { get; set; }
         public string TypeDevice { get; set; }
+
         public string? ChangeComponents { get; set; }
         public string? OtherWork { get; set; }
         public string Step1 { get; set; }

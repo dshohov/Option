@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using OptionWebApplication.Data;
 using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
-using OptionWebApplication.Repository;
 using OptionWebApplication.ViewModels;
-using System.Collections.Specialized;
-using System.Net;
 using PdfSharp.Pdf;
-using System.Diagnostics;
-using System.Drawing;
 using PdfSharp.Drawing;
+using MigraDoc;
+using PdfSharp;
+
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.Rendering;
+using PdfSharp.Pdf;
 
 namespace OptionWebApplication.Controllers
 {
@@ -134,27 +133,66 @@ namespace OptionWebApplication.Controllers
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
         }
+        public async Task<IActionResult> Print(int id)
+        {
+            Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
+
+            return View(assembly);
+        }
         public async Task<IActionResult> Pdf(int id)
         {
             var assembly = await _assemblyRepository.GetByIdAsync(id);
-
-            //Create PDF Document
-            PdfDocument document = new PdfDocument();
-            //You will have to add Page in PDF Document
-            PdfPage page = document.AddPage();
-            //For drawing in PDF Page you will nedd XGraphics Object
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-            //For Test you will have to define font to be used
-            XFont font = new XFont("Verdana", 10, XFontStyle.Bold);
-            //Finally use XGraphics & font object to draw text in PDF Page
-            gfx.DrawString(assembly.SerialNumber, font, XBrushes.Black,
-            new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
-            //Specify file name of the PDF file
-            string filename = "FirstPDFDocument.pdf";
-            //Save PDF File
-            document.Save(filename);
+            DateTime date1 = DateTime.Now;
             
+            Document document = new Document();
+            Section section = document.AddSection();
+            section.PageSetup.PageFormat = PageFormat.A4;//стандартный размер страницы
+            section.PageSetup.Orientation = Orientation.Portrait;//ориентация
+            section.PageSetup.BottomMargin = 10;//нижний отступ
+            section.PageSetup.TopMargin = 10;//верхний отступ
+            Paragraph paragraphId = new Paragraph();
+            paragraphId.Format.Font.Size = 14;
+            paragraphId.Format.Font.Bold = true;
+            paragraphId.Format.Alignment = ParagraphAlignment.Center;
+            Text textId = new Text("Сопроводительный лист сборки № " + assembly.Id + " от " + date1.ToString("d"));
+            paragraphId.Add(textId);
+            section.Add(paragraphId);
+            Paragraph paragraphCompany = new Paragraph();
+            Text textCompany = new Text("Компания: " + assembly.Company + "\n");
+            paragraphCompany.Format.Font.Size = 26;
+            paragraphCompany.Format.Alignment = ParagraphAlignment.Center;
+            paragraphCompany.Add(textCompany);
+            section.Add(paragraphCompany);
+            Paragraph paragraphEmpty = new Paragraph();
+            Text textEmpty = new Text("\n");
+            paragraphEmpty.Add(textEmpty);
+            section.Add(paragraphEmpty);
+            Paragraph paragraphSerial = new Paragraph();
+            Text textSerial = new Text("\nS/N устройств(а): " + assembly.SerialNumber);
+            paragraphSerial.Format.Font.Size = 11;
+            paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
+            paragraphSerial.Add(textSerial);
+            section.Add(paragraphSerial);
+            Paragraph paragraphEmpty2 = new Paragraph();
+            Text textEmpty2 = new Text("\n");
+            paragraphEmpty2.Add(textEmpty2);
+            section.Add(paragraphEmpty2);
+            Paragraph paragraphEmpty3 = new Paragraph();
+            Text textEmpty3 = new Text("\n");
+            paragraphEmpty3.Add(textEmpty3);
+            section.Add(paragraphEmpty3);
 
+            Paragraph paragraphSerial2 = new Paragraph();
+            Text textSerial2 = new Text("Замена комплектующих");
+            paragraphSerial2.Format.Font.Size = 11;
+            paragraphSerial2.Format.Alignment = ParagraphAlignment.Center;
+            paragraphSerial2.Add(textSerial2);
+            section.Add(paragraphSerial2);
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
+            pdfRenderer.Document = document;
+            pdfRenderer.RenderDocument();
+            pdfRenderer.PdfDocument.Save("FirstPDFDocument.pdf");// сохраняем
             return View();
         }
     }
