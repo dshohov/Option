@@ -44,7 +44,7 @@ namespace OptionWebApplication.Controllers
         //Go to creation page(Переход к странице создания)
         public IActionResult Create()
         {
-            return View();
+            return View("Create");
         }
         //Post request to the server to create a new class object Assembly(Post запрос на сервер с целью создания нового обьекта класса сборки)
         [HttpPost]
@@ -136,7 +136,7 @@ namespace OptionWebApplication.Controllers
         public async Task<IActionResult> Print(int id)
         {
             Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
-
+            
             return View(assembly);
         }
         public async Task<IActionResult> Pdf(int id)
