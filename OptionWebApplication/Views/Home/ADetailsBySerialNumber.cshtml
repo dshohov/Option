@@ -10,10 +10,12 @@
         <div class="col-md-4">
             <a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
             <h3 class="my-3">Серийный номер: @Model.SerialNumber</h3>
-            <p>Тип девайса: @Model.TypeDevice</p>
+			<h3 class="my-3">Серийный номер партии: @Model.SerialNumberParty</h3>
+            <h4>Тип девайса: @Model.TypeDevice</h4>
             <h3 class="my-3">Подробности</h3>
             <ul>
-                <li>Заказчик: @Model.Company</li>
+				<li>Дата: @Model.DateCreate</li>
+                <li>Закзчик: @Model.Company</li>
                 <li>Замена компонентов: @Model.ChangeComponents</li>
                 <li>Другие работы: @Model.OtherWork</li>
             </ul>
@@ -56,3 +58,4 @@
 </div>
 <a asp-controller="Assembly" asp-action="Edit" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-warning ">Изменить</a>
 <a asp-controller="Assembly" asp-action="Delete" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Удалить</a>
+<a asp-controller="Assembly" asp-action="Print" asp-route-id="@Model.Id"  class="border-3 btn btn-sm btn-outline-danger ">Print</a>

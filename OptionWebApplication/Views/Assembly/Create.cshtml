@@ -5,7 +5,7 @@
 
 <form method="post" asp-action="Create">
     <div class="form-group">
-        <label asp-for="DateCreate">Дата прихода: </label>
+        <label asp-for="DateCreate">Дата: </label>
         <input asp-for="DateCreate" type="date" class="form-control" placeholder="22.05.2022"/>
         <span asp-validation-for="DateCreate" class="text-danger"></span>
     </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Company">Заказчик: </label>
-        <input asp-for="Company" class="form-control" placeholder="Персональный компьютер"/>
+        <input asp-for="Company" class="form-control" />
         <span asp-validation-for="Company" class="text-danger"></span>
     </div>
     <div class="form-group">

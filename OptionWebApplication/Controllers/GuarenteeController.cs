@@ -75,6 +75,8 @@ namespace OptionWebApplication.Controllers
             if (guarentee == null) return View("Error");
             var guarenteeVM = new EditGuarenteeViewModel
             {
+                Company = guarentee.Company,
+                SerialNumberParty = guarentee.SerialNumberParty,
                 SerialNumber = guarentee.SerialNumber,
                 TypeDevice = guarentee.TypeDevice,
                 DateIn = guarentee.DateIn,
@@ -101,6 +103,8 @@ namespace OptionWebApplication.Controllers
             var guarentee = new Guarentee
             {
                 Id = id,
+                Company = guarenteeVM.Company,
+                SerialNumberParty = guarenteeVM.SerialNumberParty,
                 SerialNumber = guarenteeVM.SerialNumber,
                 TypeDevice = guarenteeVM.TypeDevice,
                 DateIn = guarenteeVM.DateIn,

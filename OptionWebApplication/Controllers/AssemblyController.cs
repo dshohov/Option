@@ -127,6 +127,7 @@ namespace OptionWebApplication.Controllers
             if (assembly == null) return View("Error");
             var assemblyVM = new EditAssemblyViewModel
             {
+                DateCreate = assembly.DateCreate,
                 SerialNumber = assembly.SerialNumber,
                 Company = assembly.Company,
                 TypeDevice = assembly.TypeDevice,
@@ -169,8 +170,8 @@ namespace OptionWebApplication.Controllers
                 TypeDevice = assemblyVM.TypeDevice,
                 SerialNumberParty = assemblyVM.SerialNumberParty,
                 Party = assemblyVM.Party,
-                
-                
+                CheckEngenire = assemblyVM.CheckEngenire,
+                DateCreate = assemblyVM.DateCreate,                
                 Component = assemblyVM.Component,
                 ChangeComponents = assemblyVM.ChangeComponents,
                 OtherWork = assemblyVM.OtherWork,

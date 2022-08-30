@@ -40,6 +40,7 @@ namespace OptionWebApplication.Repository
 
         public async Task<Assembly> GetAssemblyBySerialNumber(int serialnumber)
         {
+            
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.SerialNumber == serialnumber);   
         }
 
