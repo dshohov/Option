@@ -3,12 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OptionWebApplication.Models
 {
-    public class Guarentee
+    public class Guarentee : Device
     {
-        [Key]
-        public int Id { get; set; }
-        public string SerialNumber { get; set; }
-        public string TypeDevice { get; set; }
         public DateTime DateIn { get; set; }
         public DateTime DateOut { get; set; }
         public string? Details { get; set; }//reiconete

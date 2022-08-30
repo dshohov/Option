@@ -1,17 +1,23 @@
 ﻿@using OptionWebApplication.Data.Enum
 @model Assembly
+
 <a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a> 
 
 <form method="post" asp-action="Create">
     <div class="form-group">
+        <label asp-for="DateCreate">Дата прихода: </label>
+        <input asp-for="DateCreate" type="date" class="form-control" placeholder="22.05.2022"/>
+        <span asp-validation-for="DateCreate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <label asp-for="SerialNumber">Серийный номер: </label>
-        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="10" placeholder="111111"/>
+        <input asp-for="SerialNumber" class="form-control" type="number" maxlength="10" placeholder="111111"/>
         <span asp-validation-for="SerialNumber" class="text-danger"></span> 
     </div>
     <div class="form-group">
-        <label asp-for="TypeDevice">Тип девайса: </label>
-        <input asp-for="TypeDevice" class="form-control" placeholder="Персональный компьютер"/>
-        <span asp-validation-for="TypeDevice" class="text-danger"></span>
+        <label asp-for="Party">Количество обьектов: </label>
+        <input asp-for="Party" type="number" class="form-control"/>
+        <span asp-validation-for="Party" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Company">Заказчик: </label>
@@ -19,7 +25,19 @@
         <span asp-validation-for="Company" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ChangeComponents">Замена комплектующих: </label>
+        <label asp-for="TypeDevice">Тип девайса: </label>
+         <select asp-for="TypeDevice" asp-items="@Html.GetEnumSelectList<TypeDevice>()" class="form-control">
+            <option></option>
+        </select>
+        <span asp-validation-for="TypeDevice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Component">Комплектующие которые надо заменить: </label>
+        <input asp-for="Component" class="form-control" placeholder="Материнская плата"/>
+        <span asp-validation-for="Component" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ChangeComponents">Комплектующие на которые меняем: </label>
         <input asp-for="ChangeComponents" class="form-control" placeholder="Материнская плата"/>
         <span asp-validation-for="ChangeComponents" class="text-danger"></span>
     </div>

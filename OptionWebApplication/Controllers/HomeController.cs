@@ -35,7 +35,7 @@ namespace OptionWebApplication.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
+        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
         {
             Assembly assemblybyserialnumber = await _assemblyRepository.GetAssemblyBySerialNumber(serialnumber);
             Guarentee guarenteebyserialnumber = await _guarenteeRepository.GetGuarenteeBySerialNumber(serialnumber);

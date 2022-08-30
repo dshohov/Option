@@ -7,7 +7,7 @@ namespace OptionWebApplication.Interfaces
     {
         Task<IEnumerable<Assembly>> GetAll();
         Task<Assembly> GetByIdAsync (int id);
-        Task<Assembly> GetAssemblyBySerialNumber (string serialnumber);
+        Task<Assembly> GetAssemblyBySerialNumber (int serialnumber);
         bool Add(Assembly assembly);
         bool Update(Assembly assembly);
         bool Delete(Assembly assembly);

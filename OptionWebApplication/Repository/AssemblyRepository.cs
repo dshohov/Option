@@ -38,7 +38,7 @@ namespace OptionWebApplication.Repository
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public async Task<Assembly> GetAssemblyBySerialNumber(string serialnumber)
+        public async Task<Assembly> GetAssemblyBySerialNumber(int serialnumber)
         {
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.SerialNumber == serialnumber);   
         }

@@ -3,12 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OptionWebApplication.ViewModels
 {
-    public class EditGuarenteeViewModel
+    public class EditGuarenteeViewModel : EditDeviceViewModel
     {
-        [Key]
-        public int Id { get; set; }
-        public string SerialNumber { get; set; }
-        public string TypeDevice { get; set; }
         public DateTime DateIn { get; set; }
         public DateTime DateOut { get; set; }
         public string? Details { get; set; }//reiconete

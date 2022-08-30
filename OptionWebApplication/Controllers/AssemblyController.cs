@@ -36,7 +36,7 @@ namespace OptionWebApplication.Controllers
             return View(assembly);
         }
         //Search within an assembly(Поиск внутри сборки)
-        public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
+        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
         {
             Assembly assemblybyserialnumber = await _assemblyRepository.GetAssemblyBySerialNumber(serialnumber);
             return View(assemblybyserialnumber);
@@ -50,11 +50,56 @@ namespace OptionWebApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Assembly assembly)
         {
+            
+            assembly.SerialNumberParty = Convert.ToString(assembly.SerialNumber);
+            assembly.CheckEngenire = false;
+
+
             if (!ModelState.IsValid)
             {
                 return View(assembly);
             }
-            _assemblyRepository.Add(assembly);
+
+            if (assembly.Party > 1)
+            {
+                Assembly[] newAsembly = new Assembly[assembly.Party];
+                for(int i = 0; i<assembly.Party; i++)
+                {
+                    newAsembly[i] = new Assembly
+                    {
+                        SerialNumber = assembly.SerialNumber + i,
+                        Company = assembly.Company,
+                        TypeDevice = assembly.TypeDevice,
+                        SerialNumberParty = assembly.SerialNumberParty + "-" + (assembly.SerialNumber+assembly.Party-1),
+                        Party = assembly.Party,
+                        CheckEngenire = assembly.CheckEngenire,
+                        DateCreate = assembly.DateCreate,
+                        Component = assembly.Component,
+                        ChangeComponents = assembly.ChangeComponents,
+                        OtherWork = assembly.OtherWork,
+                        
+                        Step1 = assembly.Step1,
+                        Step2 = assembly.Step2,
+                        Step3 = assembly.Step3,
+                        Step4 = assembly.Step4,
+                        Step5 = assembly.Step5,
+                        People1 = assembly.People1,
+                        People2 = assembly.People2,
+                        People3 = assembly.People3,
+                        People4 = assembly.People4,
+                        People5 = assembly.People5
+
+                    };
+                    _assemblyRepository.Add(newAsembly[i]);
+                }
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                _assemblyRepository.Add(assembly);
+            }
+           
+
             return RedirectToAction("Index");
         }
 
@@ -83,10 +128,16 @@ namespace OptionWebApplication.Controllers
             var assemblyVM = new EditAssemblyViewModel
             {
                 SerialNumber = assembly.SerialNumber,
+                Company = assembly.Company,
                 TypeDevice = assembly.TypeDevice,
+                SerialNumberParty = assembly.SerialNumberParty,
+                Party = assembly.Party,
+                CheckEngenire = assembly.CheckEngenire,
+                
+                Component = assembly.Component,
                 ChangeComponents = assembly.ChangeComponents,
                 OtherWork = assembly.OtherWork,
-                Company = assembly.Company,
+                
                 Step1 = assembly.Step1,
                 Step2 = assembly.Step2,
                 Step3 = assembly.Step3,
@@ -114,10 +165,16 @@ namespace OptionWebApplication.Controllers
             {
                 Id = id,
                 SerialNumber = assemblyVM.SerialNumber,
+                Company = assemblyVM.Company,
                 TypeDevice = assemblyVM.TypeDevice,
+                SerialNumberParty = assemblyVM.SerialNumberParty,
+                Party = assemblyVM.Party,
+                
+                
+                Component = assemblyVM.Component,
                 ChangeComponents = assemblyVM.ChangeComponents,
                 OtherWork = assemblyVM.OtherWork,
-                Company = assemblyVM.Company,
+                
                 Step1 = assemblyVM.Step1,
                 Step2 = assemblyVM.Step2,
                 Step3 = assemblyVM.Step3,
@@ -137,64 +194,65 @@ namespace OptionWebApplication.Controllers
         {
             Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
             
+            
             return View(assembly);
         }
-        public async Task<IActionResult> Pdf(int id)
-        {
-            var assembly = await _assemblyRepository.GetByIdAsync(id);
-            DateTime date1 = DateTime.Now;
+        //public async Task<IActionResult> Pdf(int id)
+        //{
+        //    var assembly = await _assemblyRepository.GetByIdAsync(id);
+        //    DateTime date1 = DateTime.Now;
             
-            Document document = new Document();
-            Section section = document.AddSection();
-            section.PageSetup.PageFormat = PageFormat.A4;//стандартный размер страницы
-            section.PageSetup.Orientation = Orientation.Portrait;//ориентация
-            section.PageSetup.BottomMargin = 10;//нижний отступ
-            section.PageSetup.TopMargin = 10;//верхний отступ
-            Paragraph paragraphId = new Paragraph();
-            paragraphId.Format.Font.Size = 14;
-            paragraphId.Format.Font.Bold = true;
-            paragraphId.Format.Alignment = ParagraphAlignment.Center;
-            Text textId = new Text("Сопроводительный лист сборки № " + assembly.Id + " от " + date1.ToString("d"));
-            paragraphId.Add(textId);
-            section.Add(paragraphId);
-            Paragraph paragraphCompany = new Paragraph();
-            Text textCompany = new Text("Компания: " + assembly.Company + "\n");
-            paragraphCompany.Format.Font.Size = 26;
-            paragraphCompany.Format.Alignment = ParagraphAlignment.Center;
-            paragraphCompany.Add(textCompany);
-            section.Add(paragraphCompany);
-            Paragraph paragraphEmpty = new Paragraph();
-            Text textEmpty = new Text("\n");
-            paragraphEmpty.Add(textEmpty);
-            section.Add(paragraphEmpty);
-            Paragraph paragraphSerial = new Paragraph();
-            Text textSerial = new Text("\nS/N устройств(а): " + assembly.SerialNumber);
-            paragraphSerial.Format.Font.Size = 11;
-            paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
-            paragraphSerial.Add(textSerial);
-            section.Add(paragraphSerial);
-            Paragraph paragraphEmpty2 = new Paragraph();
-            Text textEmpty2 = new Text("\n");
-            paragraphEmpty2.Add(textEmpty2);
-            section.Add(paragraphEmpty2);
-            Paragraph paragraphEmpty3 = new Paragraph();
-            Text textEmpty3 = new Text("\n");
-            paragraphEmpty3.Add(textEmpty3);
-            section.Add(paragraphEmpty3);
+        //    Document document = new Document();
+        //    Section section = document.AddSection();
+        //    section.PageSetup.PageFormat = PageFormat.A4;//стандартный размер страницы
+        //    section.PageSetup.Orientation = Orientation.Portrait;//ориентация
+        //    section.PageSetup.BottomMargin = 10;//нижний отступ
+        //    section.PageSetup.TopMargin = 10;//верхний отступ
+        //    Paragraph paragraphId = new Paragraph();
+        //    paragraphId.Format.Font.Size = 14;
+        //    paragraphId.Format.Font.Bold = true;
+        //    paragraphId.Format.Alignment = ParagraphAlignment.Center;
+        //    Text textId = new Text("Сопроводительный лист сборки № " + assembly.Id + " от " + date1.ToString("d"));
+        //    paragraphId.Add(textId);
+        //    section.Add(paragraphId);
+        //    Paragraph paragraphCompany = new Paragraph();
+        //    Text textCompany = new Text("Компания: " + assembly.Company + "\n");
+        //    paragraphCompany.Format.Font.Size = 26;
+        //    paragraphCompany.Format.Alignment = ParagraphAlignment.Center;
+        //    paragraphCompany.Add(textCompany);
+        //    section.Add(paragraphCompany);
+        //    Paragraph paragraphEmpty = new Paragraph();
+        //    Text textEmpty = new Text("\n");
+        //    paragraphEmpty.Add(textEmpty);
+        //    section.Add(paragraphEmpty);
+        //    Paragraph paragraphSerial = new Paragraph();
+        //    Text textSerial = new Text("\nS/N устройств(а): " + assembly.SerialNumber);
+        //    paragraphSerial.Format.Font.Size = 11;
+        //    paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
+        //    paragraphSerial.Add(textSerial);
+        //    section.Add(paragraphSerial);
+        //    Paragraph paragraphEmpty2 = new Paragraph();
+        //    Text textEmpty2 = new Text("\n");
+        //    paragraphEmpty2.Add(textEmpty2);
+        //    section.Add(paragraphEmpty2);
+        //    Paragraph paragraphEmpty3 = new Paragraph();
+        //    Text textEmpty3 = new Text("\n");
+        //    paragraphEmpty3.Add(textEmpty3);
+        //    section.Add(paragraphEmpty3);
 
-            Paragraph paragraphSerial2 = new Paragraph();
-            Text textSerial2 = new Text("Замена комплектующих");
-            paragraphSerial2.Format.Font.Size = 11;
-            paragraphSerial2.Format.Alignment = ParagraphAlignment.Center;
-            paragraphSerial2.Add(textSerial2);
-            section.Add(paragraphSerial2);
+        //    Paragraph paragraphSerial2 = new Paragraph();
+        //    Text textSerial2 = new Text("Замена комплектующих");
+        //    paragraphSerial2.Format.Font.Size = 11;
+        //    paragraphSerial2.Format.Alignment = ParagraphAlignment.Center;
+        //    paragraphSerial2.Add(textSerial2);
+        //    section.Add(paragraphSerial2);
 
-            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
-            pdfRenderer.Document = document;
-            pdfRenderer.RenderDocument();
-            pdfRenderer.PdfDocument.Save("FirstPDFDocument.pdf");// сохраняем
-            return View();
-        }
+        //    PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
+        //    pdfRenderer.Document = document;
+        //    pdfRenderer.RenderDocument();
+        //    pdfRenderer.PdfDocument.Save("FirstPDFDocument.pdf");// сохраняем
+        //    return View();
+        //}
     }
 }
  

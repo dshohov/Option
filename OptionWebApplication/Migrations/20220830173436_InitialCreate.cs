@@ -15,9 +15,10 @@ namespace OptionWebApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeDevice = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Party = table.Column<int>(type: "int", nullable: false),
+                    CheckEngenire = table.Column<bool>(type: "bit", nullable: false),
+                    DateCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Component = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ChangeComponents = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OtherWork = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Step1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -29,7 +30,11 @@ namespace OptionWebApplication.Migrations
                     People2 = table.Column<int>(type: "int", nullable: true),
                     People3 = table.Column<int>(type: "int", nullable: true),
                     People4 = table.Column<int>(type: "int", nullable: true),
-                    People5 = table.Column<int>(type: "int", nullable: true)
+                    People5 = table.Column<int>(type: "int", nullable: true),
+                    SerialNumber = table.Column<int>(type: "int", nullable: false),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypeDevice = table.Column<int>(type: "int", nullable: false),
+                    SerialNumberParty = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,8 +47,6 @@ namespace OptionWebApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SerialNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypeDevice = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateOut = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Details = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -51,7 +54,11 @@ namespace OptionWebApplication.Migrations
                     Conclusion = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DiagnosticPeople = table.Column<int>(type: "int", nullable: false),
                     ComplectedWork = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RepairPeople = table.Column<int>(type: "int", nullable: false)
+                    RepairPeople = table.Column<int>(type: "int", nullable: false),
+                    SerialNumber = table.Column<int>(type: "int", nullable: false),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypeDevice = table.Column<int>(type: "int", nullable: false),
+                    SerialNumberParty = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

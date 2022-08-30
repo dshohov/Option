@@ -12,7 +12,7 @@ using OptionWebApplication.Data;
 namespace OptionWebApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220829105031_InitialCreate")]
+    [Migration("20220830173436_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,12 +35,24 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("ChangeComponents")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("CheckEngenire")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Company")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Component")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("OtherWork")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Party")
+                        .HasColumnType("int");
 
                     b.Property<int>("People1")
                         .HasColumnType("int");
@@ -57,8 +69,10 @@ namespace OptionWebApplication.Migrations
                     b.Property<int?>("People5")
                         .HasColumnType("int");
 
-                    b.Property<string>("SerialNumber")
-                        .IsRequired()
+                    b.Property<int>("SerialNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SerialNumberParty")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Step1")
@@ -77,9 +91,8 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("Step5")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeDevice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TypeDevice")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -93,6 +106,10 @@ namespace OptionWebApplication.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Company")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ComplectedWork")
                         .HasColumnType("nvarchar(max)");
@@ -118,13 +135,14 @@ namespace OptionWebApplication.Migrations
                     b.Property<int>("RepairPeople")
                         .HasColumnType("int");
 
-                    b.Property<string>("SerialNumber")
-                        .IsRequired()
+                    b.Property<int>("SerialNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SerialNumberParty")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeDevice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TypeDevice")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

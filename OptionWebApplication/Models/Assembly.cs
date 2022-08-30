@@ -3,16 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OptionWebApplication.Models
 {
-    public class Assembly
+    public class Assembly : Device
     {
-        [Key]
-        public int Id { get; set; }
-        public string SerialNumber { get; set; }
-        public string Company { get; set; }
-        public string TypeDevice { get; set; }
-
-        public string? ChangeComponents { get; set; }
-        public string? OtherWork { get; set; }
+ 
+        public int Party { get; set; }
+        public bool CheckEngenire { get; set; } //проверил инженер ОТК нею
+        public DateTime DateCreate { get; set; } // дата создания нею
+        public string? Component { get; set; } // компонент который надо заменить нею
+        public string? ChangeComponents { get; set; } //компонент на который меняем
+        public string? OtherWork { get; set; } // дргуие работы 
         public string Step1 { get; set; }
         public string? Step2 { get; set; }
         public string? Step3 { get; set; }

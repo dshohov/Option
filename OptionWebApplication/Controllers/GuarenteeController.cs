@@ -29,7 +29,7 @@ namespace OptionWebApplication.Controllers
             return View(guarentee);
         }
         //Search within an Guarentee(Поиск внутри гарантии)
-        public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
+        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
         {
             Guarentee guarenteebyserialnumber = await _guarenteeRepository.GetGuarenteeBySerialNumber(serialnumber);
             return View(guarenteebyserialnumber);

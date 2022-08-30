@@ -10,9 +10,11 @@
         <div class="col-md-4">
             <a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
             <h3 class="my-3">Серийный номер: @Model.SerialNumber</h3>
-            <p>Тип девайса: @Model.TypeDevice</p>
+			<h3 class="my-3">Серийный номер партии: @Model.SerialNumberParty</h3>
+            <h4>Тип девайса: @Model.TypeDevice</h4>
             <h3 class="my-3">Подробности</h3>
             <ul>
+				<li>Дата: @Model.DateCreate</li>
                 <li>Закзчик: @Model.Company</li>
                 <li>Замена компонентов: @Model.ChangeComponents</li>
                 <li>Другие работы: @Model.OtherWork</li>
@@ -51,7 +53,11 @@
 				</tr>
 			</tbody>
 		</table>
-		<h4>Проверил Инженер ОТК: <input type="checkbox" /></h4>
+		@{
+			if(Model.CheckEngenire = true){
+				<h4>Проверил Инженер ОТК Евгений</h4>
+			}
+		}
         </div>
     </div>
 </div>
