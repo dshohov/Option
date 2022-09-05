@@ -18,9 +18,11 @@ namespace OptionWebApplication.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IAssemblyRepository _assemblyRepository;
-        public AssemblyController(ApplicationDbContext context, IAssemblyRepository assemblyRepository)
+        private readonly IWebHostEnvironment _appEnvironment;
+        public AssemblyController(ApplicationDbContext context, IAssemblyRepository assemblyRepository, IWebHostEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
             _assemblyRepository = assemblyRepository;
         }
         //Assembly Home Page(Главная страница сборки)
@@ -33,6 +35,8 @@ namespace OptionWebApplication.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
+            _assemblyRepository.CreatePdf(assembly, false);
+            _assemblyRepository.CreatePdf(assembly, true);
             return View(assembly);
         }
         //Search within an assembly(Поиск внутри сборки)
@@ -191,69 +195,26 @@ namespace OptionWebApplication.Controllers
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> Print(int id)
+        public IActionResult GetFileSerialNumber()
         {
-            Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
-            
-            
-            return View(assembly);
+            // Путь к файлу
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "PdfSerialNumber.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+            string file_name = "PdfSerialNumber.pdf";
+            return PhysicalFile(file_path, file_type, file_name);
         }
-        //public async Task<IActionResult> Pdf(int id)
-        //{
-        //    var assembly = await _assemblyRepository.GetByIdAsync(id);
-        //    DateTime date1 = DateTime.Now;
-            
-        //    Document document = new Document();
-        //    Section section = document.AddSection();
-        //    section.PageSetup.PageFormat = PageFormat.A4;//стандартный размер страницы
-        //    section.PageSetup.Orientation = Orientation.Portrait;//ориентация
-        //    section.PageSetup.BottomMargin = 10;//нижний отступ
-        //    section.PageSetup.TopMargin = 10;//верхний отступ
-        //    Paragraph paragraphId = new Paragraph();
-        //    paragraphId.Format.Font.Size = 14;
-        //    paragraphId.Format.Font.Bold = true;
-        //    paragraphId.Format.Alignment = ParagraphAlignment.Center;
-        //    Text textId = new Text("Сопроводительный лист сборки № " + assembly.Id + " от " + date1.ToString("d"));
-        //    paragraphId.Add(textId);
-        //    section.Add(paragraphId);
-        //    Paragraph paragraphCompany = new Paragraph();
-        //    Text textCompany = new Text("Компания: " + assembly.Company + "\n");
-        //    paragraphCompany.Format.Font.Size = 26;
-        //    paragraphCompany.Format.Alignment = ParagraphAlignment.Center;
-        //    paragraphCompany.Add(textCompany);
-        //    section.Add(paragraphCompany);
-        //    Paragraph paragraphEmpty = new Paragraph();
-        //    Text textEmpty = new Text("\n");
-        //    paragraphEmpty.Add(textEmpty);
-        //    section.Add(paragraphEmpty);
-        //    Paragraph paragraphSerial = new Paragraph();
-        //    Text textSerial = new Text("\nS/N устройств(а): " + assembly.SerialNumber);
-        //    paragraphSerial.Format.Font.Size = 11;
-        //    paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
-        //    paragraphSerial.Add(textSerial);
-        //    section.Add(paragraphSerial);
-        //    Paragraph paragraphEmpty2 = new Paragraph();
-        //    Text textEmpty2 = new Text("\n");
-        //    paragraphEmpty2.Add(textEmpty2);
-        //    section.Add(paragraphEmpty2);
-        //    Paragraph paragraphEmpty3 = new Paragraph();
-        //    Text textEmpty3 = new Text("\n");
-        //    paragraphEmpty3.Add(textEmpty3);
-        //    section.Add(paragraphEmpty3);
-
-        //    Paragraph paragraphSerial2 = new Paragraph();
-        //    Text textSerial2 = new Text("Замена комплектующих");
-        //    paragraphSerial2.Format.Font.Size = 11;
-        //    paragraphSerial2.Format.Alignment = ParagraphAlignment.Center;
-        //    paragraphSerial2.Add(textSerial2);
-        //    section.Add(paragraphSerial2);
-
-        //    PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
-        //    pdfRenderer.Document = document;
-        //    pdfRenderer.RenderDocument();
-        //    pdfRenderer.PdfDocument.Save("FirstPDFDocument.pdf");// сохраняем
-        //    return View();
-        //}
+        public IActionResult GetFileSerialNumberParty()
+        {
+            // Путь к файлу
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "PdfSerialNumberParty.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+            string file_name = "PdfSerialNumberParty.pdf";
+            return PhysicalFile(file_path, file_type, file_name);
+        }
     }
 }
  
