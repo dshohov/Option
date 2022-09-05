@@ -73,6 +73,12 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("SerialNumberParty")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Sertification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Signature")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Step1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -95,6 +101,27 @@ namespace OptionWebApplication.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Assemblies");
+                });
+
+            modelBuilder.Entity("OptionWebApplication.Models.AssemblyFiles", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Files");
                 });
 
             modelBuilder.Entity("OptionWebApplication.Models.Guarentee", b =>

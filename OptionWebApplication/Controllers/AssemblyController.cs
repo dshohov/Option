@@ -3,14 +3,6 @@ using OptionWebApplication.Data;
 using OptionWebApplication.Interfaces;
 using OptionWebApplication.Models;
 using OptionWebApplication.ViewModels;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
-using MigraDoc;
-using PdfSharp;
-
-using MigraDoc.DocumentObjectModel;
-using MigraDoc.Rendering;
-using PdfSharp.Pdf;
 
 namespace OptionWebApplication.Controllers
 {
@@ -54,7 +46,7 @@ namespace OptionWebApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Assembly assembly)
         {
-            
+
             assembly.SerialNumberParty = Convert.ToString(assembly.SerialNumber);
             assembly.CheckEngenire = false;
 
@@ -67,21 +59,21 @@ namespace OptionWebApplication.Controllers
             if (assembly.Party > 1)
             {
                 Assembly[] newAsembly = new Assembly[assembly.Party];
-                for(int i = 0; i<assembly.Party; i++)
+                for (int i = 0; i < assembly.Party; i++)
                 {
                     newAsembly[i] = new Assembly
                     {
                         SerialNumber = assembly.SerialNumber + i,
                         Company = assembly.Company,
                         TypeDevice = assembly.TypeDevice,
-                        SerialNumberParty = assembly.SerialNumberParty + "-" + (assembly.SerialNumber+assembly.Party-1),
+                        SerialNumberParty = assembly.SerialNumberParty + "-" + (assembly.SerialNumber + assembly.Party - 1),
                         Party = assembly.Party,
                         CheckEngenire = assembly.CheckEngenire,
                         DateCreate = assembly.DateCreate,
                         Component = assembly.Component,
                         ChangeComponents = assembly.ChangeComponents,
                         OtherWork = assembly.OtherWork,
-                        
+
                         Step1 = assembly.Step1,
                         Step2 = assembly.Step2,
                         Step3 = assembly.Step3,
@@ -102,7 +94,7 @@ namespace OptionWebApplication.Controllers
             {
                 _assemblyRepository.Add(assembly);
             }
-           
+
 
             return RedirectToAction("Index");
         }
@@ -110,7 +102,7 @@ namespace OptionWebApplication.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var assembly = await _assemblyRepository.GetByIdAsync(id);
-            if(assembly == null) return View("Error");
+            if (assembly == null) return View("Error");
             return View(assembly);
         }
 
@@ -119,7 +111,7 @@ namespace OptionWebApplication.Controllers
         {
             var assembly = await _assemblyRepository.GetByIdAsync(id);
             if (assembly == null) return View("Error");
-            
+
             _assemblyRepository.Delete(assembly);
             return RedirectToAction("Index");
 
@@ -138,11 +130,11 @@ namespace OptionWebApplication.Controllers
                 SerialNumberParty = assembly.SerialNumberParty,
                 Party = assembly.Party,
                 CheckEngenire = assembly.CheckEngenire,
-                
+
                 Component = assembly.Component,
                 ChangeComponents = assembly.ChangeComponents,
                 OtherWork = assembly.OtherWork,
-                
+
                 Step1 = assembly.Step1,
                 Step2 = assembly.Step2,
                 Step3 = assembly.Step3,
@@ -158,14 +150,14 @@ namespace OptionWebApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, EditAssemblyViewModel assemblyVM)
+        public async Task<IActionResult> Edit(int id, EditAssemblyViewModel assemblyVM, IFormFile uploadedFile, IFormFile setificateFile)
         {
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError("", "Failed to edit club");
                 return View("Edit", assemblyVM);
             }
-            
+
             var assembly = new Assembly
             {
                 Id = id,
@@ -175,11 +167,11 @@ namespace OptionWebApplication.Controllers
                 SerialNumberParty = assemblyVM.SerialNumberParty,
                 Party = assemblyVM.Party,
                 CheckEngenire = assemblyVM.CheckEngenire,
-                DateCreate = assemblyVM.DateCreate,                
+                DateCreate = assemblyVM.DateCreate,
                 Component = assemblyVM.Component,
                 ChangeComponents = assemblyVM.ChangeComponents,
                 OtherWork = assemblyVM.OtherWork,
-                
+
                 Step1 = assemblyVM.Step1,
                 Step2 = assemblyVM.Step2,
                 Step3 = assemblyVM.Step3,
@@ -191,7 +183,33 @@ namespace OptionWebApplication.Controllers
                 People4 = assemblyVM.People4,
                 People5 = assemblyVM.People5
             };
-
+            if (uploadedFile != null)
+            {
+                // путь к папке Files
+                string path = "/Files/Signature/" + Convert.ToString(assembly.SerialNumber + "Signature.pdf");
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.SerialNumber + "Signature"), Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
+            if (setificateFile != null)
+            {
+                // путь к папке Files
+                string path = "/Files/Sertification/" + Convert.ToString(assembly.SerialNumber + "Sertification.pdf");
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await setificateFile.CopyToAsync(fileStream);
+                }
+                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.SerialNumber + "Sertification"), Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();   
+                assembly.Sertification = "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Sertification/" + Convert.ToString(assembly.SerialNumber) + "Sertification.pdf";
+            }
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
         }
@@ -205,6 +223,7 @@ namespace OptionWebApplication.Controllers
             string file_name = "PdfSerialNumber.pdf";
             return PhysicalFile(file_path, file_type, file_name);
         }
+
         public IActionResult GetFileSerialNumberParty()
         {
             // Путь к файлу
@@ -214,6 +233,17 @@ namespace OptionWebApplication.Controllers
             // Имя файла - необязательно
             string file_name = "PdfSerialNumberParty.pdf";
             return PhysicalFile(file_path, file_type, file_name);
+        }
+        public IActionResult GetSertificationFileAsync(Assembly assembly)
+        {
+           
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Sertification/" + Convert.ToString(assembly.SerialNumber) + "Sertification.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+            string file_name = "PdfSerialNumberParty.pdf";
+            return PhysicalFile(file_path, file_type, file_name);
+
         }
     }
 }
