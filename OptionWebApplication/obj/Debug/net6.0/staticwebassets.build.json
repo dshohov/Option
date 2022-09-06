@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lols9RZThMslr4qbnz1WHsxAVUG9iZCmvOP2oV1konY=",
+  "Hash": "DSodGYBRZnrItfrq62pBigi8r9VJ2/mNkApDw0wsHEQ=",
   "Source": "OptionWebApplication",
   "BasePath": "_content/OptionWebApplication",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OptionWebApplication.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\css\\css.css",
+      "SourceId": "OptionWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
+      "BasePath": "_content/OptionWebApplication",
+      "RelativePath": "css/css.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\css.css"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\css\\site.css",
