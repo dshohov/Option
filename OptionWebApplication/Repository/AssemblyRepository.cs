@@ -13,7 +13,7 @@ namespace OptionWebApplication.Repository
     public class AssemblyRepository : IAssemblyRepository
     {
         private readonly ApplicationDbContext _context;
-        public AssemblyRepository(ApplicationDbContext context)
+        public AssemblyRepository(ApplicationDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
         }
@@ -269,5 +269,8 @@ namespace OptionWebApplication.Repository
                 element = "-";
             return element;
         }
+
+      
+      
     }
 }

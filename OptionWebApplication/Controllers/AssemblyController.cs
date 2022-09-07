@@ -8,11 +8,13 @@ namespace OptionWebApplication.Controllers
 {
     public class AssemblyController : Controller
     {
+        private int _serialNumber;
         private readonly ApplicationDbContext _context;
         private readonly IAssemblyRepository _assemblyRepository;
         private readonly IWebHostEnvironment _appEnvironment;
         public AssemblyController(ApplicationDbContext context, IAssemblyRepository assemblyRepository, IWebHostEnvironment appEnvironment)
         {
+
             _context = context;
             _appEnvironment = appEnvironment;
             _assemblyRepository = assemblyRepository;
@@ -29,6 +31,7 @@ namespace OptionWebApplication.Controllers
             Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
             _assemblyRepository.CreatePdf(assembly, false);
             _assemblyRepository.CreatePdf(assembly, true);
+            _serialNumber = assembly.SerialNumber;
             return View(assembly);
         }
         //Search within an assembly(Поиск внутри сборки)
@@ -186,29 +189,28 @@ namespace OptionWebApplication.Controllers
             if (uploadedFile != null)
             {
                 // путь к папке Files
-                string path = "/Files/Signature/" + Convert.ToString(assembly.SerialNumber + "Signature.pdf");
+                string path = "/Files/Signature/" + Convert.ToString(assembly.Id + "Signature.pdf");
                 // сохраняем файл в папку Files в каталоге wwwroot
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {
                     await uploadedFile.CopyToAsync(fileStream);
                 }
-                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.SerialNumber + "Signature"), Path = path };
+                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.Id + "Signature"), Path = path };
                 _context.Files.Add(file);
                 _context.SaveChanges();
             }
             if (setificateFile != null)
             {
                 // путь к папке Files
-                string path = "/Files/Sertification/" + Convert.ToString(assembly.SerialNumber + "Sertification.pdf");
+                string path = "/Files/Sertification/" + Convert.ToString(assembly.Id + "Sertification.pdf");
                 // сохраняем файл в папку Files в каталоге wwwroot
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {
                     await setificateFile.CopyToAsync(fileStream);
                 }
-                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.SerialNumber + "Sertification"), Path = path };
+                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.Id + "Sertification"), Path = path };
                 _context.Files.Add(file);
                 _context.SaveChanges();   
-                assembly.Sertification = "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Sertification/" + Convert.ToString(assembly.SerialNumber) + "Sertification.pdf";
             }
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
@@ -234,15 +236,25 @@ namespace OptionWebApplication.Controllers
             string file_name = "PdfSerialNumberParty.pdf";
             return PhysicalFile(file_path, file_type, file_name);
         }
-        public IActionResult GetSertificationFileAsync(Assembly assembly)
+
+            public IActionResult GetSertificationFile(int id)
         {
-           
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Sertification/" + Convert.ToString(assembly.SerialNumber) + "Sertification.pdf");
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Sertification/" + Convert.ToString(id) + "Sertification.pdf");
             // Тип файла - content-type
             string file_type = "application/pdf";
             // Имя файла - необязательно
-            string file_name = "PdfSerialNumberParty.pdf";
-            return PhysicalFile(file_path, file_type, file_name);
+            
+            return PhysicalFile(file_path, file_type);
+
+        }
+        public IActionResult GetSignatureFile(int id)
+        {
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Signature/" + Convert.ToString(id) + "Signature.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+
+            return PhysicalFile(file_path, file_type);
 
         }
     }
