@@ -49,9 +49,6 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("OtherWork")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Party")
-                        .HasColumnType("int");
-
                     b.Property<int>("People1")
                         .HasColumnType("int");
 
@@ -67,10 +64,8 @@ namespace OptionWebApplication.Migrations
                     b.Property<int?>("People5")
                         .HasColumnType("int");
 
-                    b.Property<int>("SerialNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SerialNumberParty")
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sertification")
@@ -160,10 +155,8 @@ namespace OptionWebApplication.Migrations
                     b.Property<int>("RepairPeople")
                         .HasColumnType("int");
 
-                    b.Property<int>("SerialNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SerialNumberParty")
+                    b.Property<string>("SerialNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TypeDevice")

@@ -15,14 +15,10 @@
     </div>
     <div class="form-group">
         <label asp-for="SerialNumber">Серийный номер: </label>
-        <input asp-for="SerialNumber" class="form-control" type="number" maxlength="10" placeholder="111111"/>
+        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="10" placeholder="111111"/>
         <span asp-validation-for="SerialNumber" class="text-danger"></span> 
     </div>
-    <div class="form-group">
-        <label asp-for="SerialNumberParty">Количество обьектов: </label>
-        <input asp-for="SerialNumberParty" type="text" class="form-control"/>
-        <span asp-validation-for="SerialNumberParty" class="text-danger"></span>
-    </div>
+
     <div class="form-group">
         <label asp-for="Company">Заказчик: </label>
         <input asp-for="Company" class="form-control" placeholder="Персональный компьютер"/>

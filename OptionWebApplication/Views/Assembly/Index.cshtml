@@ -1,46 +1,27 @@
 ﻿@model IEnumerable<Assembly>
 
 
-
-
 <div class="main_container">
     <div class="container">
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="box_add">
-                              <div class="content">
-                                <h2>Создать Сборку</h2>
-                                <h3></h3>
-                                <p></p>
-                                <a asp-controller="Assembly" asp-action="Create"><button>Создать Сборку</button></a>
-                              </div>
+                <div class="content">
+                        <h2>Создать Сборку</h2>
+                        <h3></h3>
+                        <p></p>
+                    <a asp-controller="Assembly" asp-action="Create"><button>Создать Сборку</button></a>
+                </div>
             </div>
             @foreach(var item in Model)
             {
-
-                        
-                            <div class="box">
-                              <div class="content">
-                                <h2>@item.SerialNumber</h2>
-                                <h3>Тип устройства: @item.TypeDevice</h3>
-                                <p>Заказчик: @item.Company</p>
-                                <a asp-area="" asp-controller="Assembly" asp-action="Detail" asp-route-id="@item.Id"><button>Детали</button></a>
-                              </div>
-                            </div>
-
-                            @*<p class="card-text">Серийный номер: @item.SerialNumber</p>
-                            <p class="card-text">Тип устройства: @item.TypeDevice</p>
-                            <p class="card-text">Заказчик: @item.Company</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a asp-controller="Assembly" asp-action="Detail" asp-route-id="@item.Id" class="border-3 btn btn-outline-primary btn-sm ">Детали</a>
-                                    <a asp-controller="Assembly" asp-action="Edit" asp-route-id="@item.Id" class="border-3 btn btn-sm btn-outline-warning ">Изменить</a>
-                                    <a asp-controller="Assembly" asp-action="Delete" asp-route-id="@item.Id" class="border-3 btn btn-sm btn-outline-danger ">Удалить</a>
-                                </div> 
-                            </div>*@
-                        
-                    
-
+                <div class="box">
+                    <div class="content">
+                        <h2>@item.SerialNumber</h2>
+                        <h3>Тип устройства: @item.TypeDevice</h3>
+                        <p>Заказчик: @item.Company</p>
+                        <a asp-area="" asp-controller="Assembly" asp-action="Detail" asp-route-id="@item.Id"><button>Детали</button></a>
+                    </div>
+                </div>
             }
         </div>
     </div>

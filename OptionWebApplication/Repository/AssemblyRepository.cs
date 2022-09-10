@@ -40,7 +40,7 @@ namespace OptionWebApplication.Repository
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public async Task<Assembly> GetAssemblyBySerialNumber(int serialnumber)
+        public async Task<Assembly> GetAssemblyBySerialNumber(string serialnumber)
         {
             
             return await _context.Assemblies.FirstOrDefaultAsync(i => i.SerialNumber == serialnumber);   
@@ -85,25 +85,12 @@ namespace OptionWebApplication.Repository
             Text textEmpty = new Text("\n");
             paragraphEmpty.Add(textEmpty);
             section.Add(paragraphEmpty);
-            if(type == false)
-            {
-                Paragraph paragraphSerial = new Paragraph();
-                Text textSerial = new Text("\nS/N устройств(а): " + assembly.SerialNumber);
-                paragraphSerial.Format.Font.Size = 11;
-                paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
-                paragraphSerial.Add(textSerial);
-                section.Add(paragraphSerial);
-            }
-            else
-            {
-                Paragraph paragraphSerial = new Paragraph();
-                Text textSerial = new Text("\nS/N Сборки: " + assembly.SerialNumberParty);
-                paragraphSerial.Format.Font.Size = 11;
-                paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
-                paragraphSerial.Add(textSerial);
-                section.Add(paragraphSerial);
-            }
-            
+            Paragraph paragraphSerial = new Paragraph();
+            Text textSerial = new Text("\nS/N устройств(а): " + assembly.SerialNumber);
+            paragraphSerial.Format.Font.Size = 11;
+            paragraphSerial.Format.Alignment = ParagraphAlignment.Center;
+            paragraphSerial.Add(textSerial);
+            section.Add(paragraphSerial);
             Paragraph paragraphEmpty2 = new Paragraph();
             Text textEmpty2 = new Text("\n");
             paragraphEmpty2.Add(textEmpty2);

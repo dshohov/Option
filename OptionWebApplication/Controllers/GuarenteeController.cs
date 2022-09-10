@@ -29,7 +29,7 @@ namespace OptionWebApplication.Controllers
             return View(guarentee);
         }
         //Search within an Guarentee(Поиск внутри гарантии)
-        public async Task<IActionResult> DetailsBySerialNumber(int serialnumber)
+        public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
         {
             Guarentee guarenteebyserialnumber = await _guarenteeRepository.GetGuarenteeBySerialNumber(serialnumber);
             return View(guarenteebyserialnumber);
@@ -76,7 +76,6 @@ namespace OptionWebApplication.Controllers
             var guarenteeVM = new EditGuarenteeViewModel
             {
                 Company = guarentee.Company,
-                SerialNumberParty = guarentee.SerialNumberParty,
                 SerialNumber = guarentee.SerialNumber,
                 TypeDevice = guarentee.TypeDevice,
                 DateIn = guarentee.DateIn,
@@ -104,7 +103,6 @@ namespace OptionWebApplication.Controllers
             {
                 Id = id,
                 Company = guarenteeVM.Company,
-                SerialNumberParty = guarenteeVM.SerialNumberParty,
                 SerialNumber = guarenteeVM.SerialNumber,
                 TypeDevice = guarenteeVM.TypeDevice,
                 DateIn = guarenteeVM.DateIn,

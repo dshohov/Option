@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v4zF7mej9FSpwAeLbA3nH9NYGItVGWEGGHpSlKR7dhw=",
+  "Hash": "bzsL5hmsGnTTr7wDvbxrJUDXx3l+L39DKijhBpO/uFI=",
   "Source": "OptionWebApplication",
   "BasePath": "_content/OptionWebApplication",
   "Mode": "Default",
@@ -102,12 +102,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Sertification\\10Sertification.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Sertification\\10Sertification.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Sertification/10Sertification.pdf",
+      "RelativePath": "Files/Assembly/Sertification/10Sertification.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Sertification\\10Sertification.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Sertification\\10Sertification.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Sertification\\1Sertification.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Sertification\\1Sertification.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Sertification/1Sertification.pdf",
+      "RelativePath": "Files/Assembly/Sertification/1Sertification.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Sertification\\1Sertification.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Sertification\\1Sertification.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Sertification\\2Sertification.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Sertification\\2Sertification.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Sertification/2Sertification.pdf",
+      "RelativePath": "Files/Assembly/Sertification/2Sertification.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Sertification\\2Sertification.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Sertification\\2Sertification.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Sertification\\5Sertification.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Sertification\\3Sertification.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Sertification/5Sertification.pdf",
+      "RelativePath": "Files/Assembly/Sertification/3Sertification.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Sertification\\5Sertification.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Sertification\\3Sertification.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Sertification\\7Sertification.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Sertification\\5Sertification.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Sertification/7Sertification.pdf",
+      "RelativePath": "Files/Assembly/Sertification/5Sertification.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,15 +184,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Sertification\\7Sertification.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Sertification\\5Sertification.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Signature\\10Signature.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Sertification\\7Sertification.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Signature/10Signature.pdf",
+      "RelativePath": "Files/Assembly/Sertification/7Sertification.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,15 +201,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Signature\\10Signature.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Sertification\\7Sertification.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Signature\\1Signature.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Signature\\10Signature.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Signature/1Signature.pdf",
+      "RelativePath": "Files/Assembly/Signature/10Signature.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -218,15 +218,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Signature\\1Signature.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\10Signature.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Signature\\2Signature.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Signature\\1Signature.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Signature/2Signature.pdf",
+      "RelativePath": "Files/Assembly/Signature/1Signature.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,15 +235,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Signature\\2Signature.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\1Signature.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Signature\\5Signature.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Signature\\2Signature.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Signature/5Signature.pdf",
+      "RelativePath": "Files/Assembly/Signature/2Signature.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,15 +252,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Signature\\5Signature.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\2Signature.pdf"
     },
     {
-      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Signature\\7Signature.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Signature\\3Signature.pdf",
       "SourceId": "OptionWebApplication",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
       "BasePath": "_content/OptionWebApplication",
-      "RelativePath": "Files/Signature/7Signature.pdf",
+      "RelativePath": "Files/Assembly/Signature/3Signature.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,7 +269,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\Signature\\7Signature.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\3Signature.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Signature\\5Signature.pdf",
+      "SourceId": "OptionWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
+      "BasePath": "_content/OptionWebApplication",
+      "RelativePath": "Files/Assembly/Signature/5Signature.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\5Signature.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Assembly\\Signature\\7Signature.pdf",
+      "SourceId": "OptionWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
+      "BasePath": "_content/OptionWebApplication",
+      "RelativePath": "Files/Assembly/Signature/7Signature.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\7Signature.pdf"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\js\\site.js",

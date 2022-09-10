@@ -19,7 +19,7 @@ namespace OptionWebApplication.Data
                     {
                         new Assembly()
                         {
-                            SerialNumber = 111111,
+                            SerialNumber = "111111",
                             TypeDevice = Enum.TypeDevice.Монитор,
                             ChangeComponents = "Материнская плата",
                             OtherWork = "Гравировка",
@@ -36,7 +36,7 @@ namespace OptionWebApplication.Data
                     {
                         new Guarentee()
                         {
-                            SerialNumber = 222222,
+                            SerialNumber = "222222",
                             TypeDevice = Enum.TypeDevice.Ноутбук,
                             DateIn = new DateTime(2022,08,26),
                             DateOut = new DateTime(2022,08,30),

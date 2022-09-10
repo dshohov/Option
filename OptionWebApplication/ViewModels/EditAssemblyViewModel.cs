@@ -5,7 +5,6 @@ namespace OptionWebApplication.ViewModels
 {
     public class EditAssemblyViewModel : EditDeviceViewModel
     {
-        public int Party { get; set; }
         public bool CheckEngenire { get; set; } //проверил инженер ОТК нею
         public DateTime DateCreate { get; set; } // дата создания нею
         public string? Component { get; set; } // компонент который надо заменить нею

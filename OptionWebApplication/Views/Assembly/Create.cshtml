@@ -10,14 +10,9 @@
         <span asp-validation-for="DateCreate" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="SerialNumber">Серийный номер: </label>
-        <input asp-for="SerialNumber" class="form-control" type="number" maxlength="10" placeholder="111111"/>
+        <label asp-for="SerialNumber">Серийный номер сборки: </label>
+        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="10" placeholder="111111"/>
         <span asp-validation-for="SerialNumber" class="text-danger"></span> 
-    </div>
-    <div class="form-group">
-        <label asp-for="Party">Количество обьектов: </label>
-        <input asp-for="Party" type="number" class="form-control"/>
-        <span asp-validation-for="Party" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Company">Заказчик: </label>

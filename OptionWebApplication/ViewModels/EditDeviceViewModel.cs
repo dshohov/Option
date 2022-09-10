@@ -8,9 +8,9 @@ namespace OptionWebApplication.ViewModels
 
         
         
-        public int SerialNumber { get; set; }
+        public string SerialNumber { get; set; }
         public string Company { get; set; }
         public TypeDevice TypeDevice { get; set; }
-        public string? SerialNumberParty { get; set; }
+  
     }
 }
