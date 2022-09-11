@@ -5,7 +5,8 @@ namespace OptionWebApplication.Models
 {
     public class Assembly : Device
     {
- 
+        public int Party { get; set; }
+        public string? PartySerialNumber { get; set; }
         public bool CheckEngenire { get; set; } //проверил инженер ОТК нею
         public DateTime DateCreate { get; set; } // дата создания нею
         public string? Component { get; set; } // компонент который надо заменить нею

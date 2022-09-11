@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-4">
             <a asp-controller="Assembly" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
-            <h3 class="my-3">Серийный номер: @Model.SerialNumber</h3>
+            <h3 class="my-3">Серийный номер: @Model.PartySerialNumber</h3>
             <h4>Тип девайса: @Model.TypeDevice</h4>
             <h3 class="my-3">Подробности</h3>
             <ul>
@@ -52,11 +52,24 @@
 				</tr>
 			</tbody>
 		</table>
+		@{
+			if(Model.CheckEngenire){
+				<div class="alert alert-success" role="alert">
+				  Инженер ОТК проверил данную сборку
+				</div>
+			}
+				
+		}
         </div>
     </div>
 </div>
 <a asp-controller="Assembly" asp-action="Edit" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-warning ">Изменить</a>
 <a asp-controller="Assembly" asp-action="Delete" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Удалить</a>
-<a asp-controller="Assembly" asp-action="GetFileSerialNumber" class="border-3 btn btn-sm btn-outline-danger ">Печать Документа</a>
-<a asp-controller="Assembly" asp-action="GetSertificationFile" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать спецефикации</a>
-<a asp-controller="Assembly" asp-action="GetSignatureFile" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать документа с Подписями</a>
+@{
+	if (Model.CheckEngenire)
+	{
+		<a asp-controller="Assembly" asp-action="GetFileSerialNumber" class="border-3 btn btn-sm btn-outline-danger ">Печать Документа</a>
+		<a asp-controller="Assembly" asp-action="GetSertificationFile" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать спецефикации</a>
+		<a asp-controller="Assembly" asp-action="GetSignatureFile" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать документа с Подписями</a>	
+	}
+}

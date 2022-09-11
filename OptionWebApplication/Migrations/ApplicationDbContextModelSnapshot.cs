@@ -49,6 +49,12 @@ namespace OptionWebApplication.Migrations
                     b.Property<string>("OtherWork")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Party")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PartySerialNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("People1")
                         .HasColumnType("int");
 

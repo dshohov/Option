@@ -8,7 +8,6 @@ namespace OptionWebApplication.Controllers
 {
     public class AssemblyController : Controller
     {
-        private string _serialNumber;
         private readonly ApplicationDbContext _context;
         private readonly IAssemblyRepository _assemblyRepository;
         private readonly IWebHostEnvironment _appEnvironment;
@@ -52,7 +51,7 @@ namespace OptionWebApplication.Controllers
 
            
             assembly.CheckEngenire = false;
-
+            assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString( Convert.ToInt32(assembly.SerialNumber) + assembly.Party -1); 
             _assemblyRepository.Add(assembly);
             return RedirectToAction("Index");
         }
@@ -86,11 +85,11 @@ namespace OptionWebApplication.Controllers
                 Company = assembly.Company,
                 TypeDevice = assembly.TypeDevice,
                 CheckEngenire = assembly.CheckEngenire,
-
+                Party = assembly.Party,
                 Component = assembly.Component,
                 ChangeComponents = assembly.ChangeComponents,
                 OtherWork = assembly.OtherWork,
-
+                
                 Step1 = assembly.Step1,
                 Step2 = assembly.Step2,
                 Step3 = assembly.Step3,
@@ -108,11 +107,11 @@ namespace OptionWebApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, EditAssemblyViewModel assemblyVM, IFormFile uploadedFile, IFormFile setificateFile)
         {
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError("", "Failed to edit club");
-                return View("Edit", assemblyVM);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    ModelState.AddModelError("", "Failed to edit club");
+            //    return View("Edit", assemblyVM);
+            //}
 
             var assembly = new Assembly
             {
@@ -120,7 +119,7 @@ namespace OptionWebApplication.Controllers
                 SerialNumber = assemblyVM.SerialNumber,
                 Company = assemblyVM.Company,
                 TypeDevice = assemblyVM.TypeDevice,
-
+                Party = assemblyVM.Party,
                 CheckEngenire = assemblyVM.CheckEngenire,
                 DateCreate = assemblyVM.DateCreate,
                 Component = assemblyVM.Component,
@@ -164,6 +163,7 @@ namespace OptionWebApplication.Controllers
                 _context.Files.Add(file);
                 _context.SaveChanges();   
             }
+            assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString(Convert.ToInt32(assembly.SerialNumber) + assembly.Party - 1);
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
         }

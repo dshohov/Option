@@ -14,11 +14,15 @@
         <span asp-validation-for="DateCreate" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="SerialNumber">Серийный номер: </label>
+        <label asp-for="SerialNumber">Серийный номер певого девайса: </label>
         <input asp-for="SerialNumber" class="form-control" type="text" maxlength="10" placeholder="111111"/>
         <span asp-validation-for="SerialNumber" class="text-danger"></span> 
     </div>
-
+    <div class="form-group">
+        <label asp-for="Party">Количество девайсов: </label>
+        <input asp-for="Party" class="form-control" type="number" maxlength="10" placeholder="111111"/>
+        <span asp-validation-for="Party" class="text-danger"></span> 
+    </div>
     <div class="form-group">
         <label asp-for="Company">Заказчик: </label>
         <input asp-for="Company" class="form-control" placeholder="Персональный компьютер"/>
@@ -89,5 +93,11 @@
     <input type="file" name="uploadedFile" /><br>
     <h3>Прикрепите файл сертификации</h3>
     <input type="file" name="setificateFile" /><br>
+    <div class="form-group">
+        <label asp-for="CheckEngenire">Проверил Инженер ОТК: </label>
+        <input asp-for="CheckEngenire" type="checkbox" placeholder="Установка EfiShell"/>
+    </div>
+
     <button type="submit" class="btn btn-primary mt-2">Изменить</button>
+    
 </form>
