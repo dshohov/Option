@@ -11,5 +11,6 @@ namespace OptionWebApplication.Interfaces
         bool Update(Guarentee guarentee);
         bool Delete(Guarentee guarentee);
         bool Save();
+        void CreatePdf(Guarentee guarentee);
     }
 }

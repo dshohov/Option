@@ -58,7 +58,7 @@ namespace OptionWebApplication.Repository
             return Save();
         }
 
-        public void CreatePdf (Assembly assembly,bool type)
+        public void CreatePdf (Assembly assembly)
         {
             DateTime date1 = DateTime.Now;
 
@@ -185,14 +185,7 @@ namespace OptionWebApplication.Repository
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
             pdfRenderer.Document = document;
             pdfRenderer.RenderDocument();
-            if (type == false)
-            {
-                pdfRenderer.PdfDocument.Save("PdfSerialNumber.pdf");
-            }
-            else
-            {
-                pdfRenderer.PdfDocument.Save("PdfSerialNumberParty.pdf");
-            }
+            pdfRenderer.PdfDocument.Save("PdfAssembly.pdf");
 // сохраняем
         }
         public MigraDoc.DocumentObjectModel.Tables.Table createTable(Assembly assembly)

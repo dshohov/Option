@@ -28,6 +28,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\Files\Assembly\Signature\" />
     <Folder Include="wwwroot\Files\Assembly\Sertification\" />
+    <Folder Include="wwwroot\Files\Guarenrtee\Sertification\" />
+    <Folder Include="wwwroot\Files\Guarenrtee\Signature\" />
   </ItemGroup>
 
 </Project>

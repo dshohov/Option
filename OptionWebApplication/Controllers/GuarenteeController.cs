@@ -10,9 +10,11 @@ namespace OptionWebApplication.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IGuarenteeRepository _guarenteeRepository;
-        public GuarenteeController(ApplicationDbContext context, IGuarenteeRepository guarenteeRepository)
+        private readonly IWebHostEnvironment _appEnvironment;
+        public GuarenteeController(ApplicationDbContext context, IGuarenteeRepository guarenteeRepository, IWebHostEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
             _guarenteeRepository = guarenteeRepository;
 
         }
@@ -23,15 +25,17 @@ namespace OptionWebApplication.Controllers
             return View(guarentees);
         }
         //View details(Посмотреть детально)
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            Guarentee guarentee = _context.Guarentes.FirstOrDefault(c => c.Id == id);
+            Guarentee guarentee = await _guarenteeRepository.GetByIdAsync(id);
+            _guarenteeRepository.CreatePdf(guarentee);
             return View(guarentee);
         }
         //Search within an Guarentee(Поиск внутри гарантии)
         public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
         {
             Guarentee guarenteebyserialnumber = await _guarenteeRepository.GetGuarenteeBySerialNumber(serialnumber);
+            _guarenteeRepository.CreatePdf(guarenteebyserialnumber);
             return View(guarenteebyserialnumber);
         }
         //Go to creation page(Переход к странице создания)
@@ -87,11 +91,12 @@ namespace OptionWebApplication.Controllers
                 ComplectedWork = guarentee.ComplectedWork,
                 RepairPeople = guarentee.RepairPeople
             };
+            
             return View(guarenteeVM);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, EditGuarenteeViewModel guarenteeVM)
+        public async Task<IActionResult> Edit(int id, EditGuarenteeViewModel guarenteeVM, IFormFile uploadedFile, IFormFile setificateFile)
         {
             if (!ModelState.IsValid)
             {
@@ -114,9 +119,64 @@ namespace OptionWebApplication.Controllers
                 ComplectedWork = guarenteeVM.ComplectedWork,
                 RepairPeople = guarenteeVM.RepairPeople
             };
-
+            if (uploadedFile != null)
+            {
+                // путь к папке Files
+                string path = "/Files/Guarenrtee/Signature/" + Convert.ToString(guarentee.Id + "Signature.pdf");
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(guarentee.Id + "Signature"), Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
+            if (setificateFile != null)
+            {
+                // путь к папке Files
+                string path = "/Files/Guarenrtee/Sertification/" + Convert.ToString(guarentee.Id + "Sertification.pdf");
+                // сохраняем файл в папку Files в каталоге wwwroot
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await setificateFile.CopyToAsync(fileStream);
+                }
+                AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(guarentee.Id + "Sertification"), Path = path };
+                _context.Files.Add(file);
+                _context.SaveChanges();
+            }
             _guarenteeRepository.Update(guarentee);
-            return RedirectToAction("Index");
+            return RedirectToAction("Detail", guarentee);
         }
+        public IActionResult GetFileSerialNumber()
+        {
+            // Путь к файлу
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/PdfGuarentee.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+            return PhysicalFile(file_path, file_type);
+        }
+        public IActionResult GetSertificationFile(int id)
+        {
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Guarenrtee/Sertification/" + Convert.ToString(id) + "Sertification.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+
+            return PhysicalFile(file_path, file_type);
+
+        }
+        public IActionResult GetSignatureFile(int id)
+        {
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Guarenrtee/Signature/" + Convert.ToString(id) + "Signature.pdf");
+            // Тип файла - content-type
+            string file_type = "application/pdf";
+            // Имя файла - необязательно
+
+            return PhysicalFile(file_path, file_type);
+
+        }
+
     }
 }

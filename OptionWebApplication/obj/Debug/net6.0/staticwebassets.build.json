@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bzsL5hmsGnTTr7wDvbxrJUDXx3l+L39DKijhBpO/uFI=",
+  "Hash": "YnZlhLIw+exgtMLb7C2ar3WfYhd3VsrGWBJLK/mnW2k=",
   "Source": "OptionWebApplication",
   "BasePath": "_content/OptionWebApplication",
   "Mode": "Default",
@@ -304,6 +304,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Files\\Assembly\\Signature\\7Signature.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Guarenrtee\\Sertification\\1Sertification.pdf",
+      "SourceId": "OptionWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
+      "BasePath": "_content/OptionWebApplication",
+      "RelativePath": "Files/Guarenrtee/Sertification/1Sertification.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Guarenrtee\\Sertification\\1Sertification.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\Files\\Guarenrtee\\Signature\\1Signature.pdf",
+      "SourceId": "OptionWebApplication",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\",
+      "BasePath": "_content/OptionWebApplication",
+      "RelativePath": "Files/Guarenrtee/Signature/1Signature.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Guarenrtee\\Signature\\1Signature.pdf"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\Option\\OptionWebApplication\\wwwroot\\js\\site.js",

@@ -27,3 +27,6 @@
 </div>
 <a asp-controller="Guarentee" asp-action="Edit" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-warning ">Изменить</a>
 <a asp-controller="Guarentee" asp-action="Delete" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Удалить</a>
+<a asp-controller="Guarentee" asp-action="GetFileSerialNumber" class="border-3 btn btn-sm btn-outline-danger ">Печать Документа</a>
+<a asp-controller="Guarentee" asp-action="GetSertificationFile" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать спецефикации</a>
+<a asp-controller="Guarentee" asp-action="GetSignatureFile" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать документа с Подписями</a>

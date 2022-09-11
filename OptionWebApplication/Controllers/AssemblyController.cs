@@ -30,14 +30,14 @@ namespace OptionWebApplication.Controllers
         {
             Assembly assembly = await _assemblyRepository.GetByIdAsync(id);
            
-            _assemblyRepository.CreatePdf(assembly, true);
-            _serialNumber = assembly.SerialNumber;
+            _assemblyRepository.CreatePdf(assembly);
             return View(assembly);
         }
         //Search within an assembly(Поиск внутри сборки)
         public async Task<IActionResult> DetailsBySerialNumber(string serialnumber)
         {
             Assembly assemblybyserialnumber = await _assemblyRepository.GetAssemblyBySerialNumber(serialnumber);
+            _assemblyRepository.CreatePdf(assemblybyserialnumber);
             return View(assemblybyserialnumber);
         }
         //Go to creation page(Переход к странице создания)
@@ -170,25 +170,13 @@ namespace OptionWebApplication.Controllers
         public IActionResult GetFileSerialNumber()
         {
             // Путь к файлу
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "PdfSerialNumber.pdf");
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "PdfAssembly.pdf");
             // Тип файла - content-type
             string file_type = "application/pdf";
             // Имя файла - необязательно
             return PhysicalFile(file_path, file_type);
         }
-
-        public IActionResult GetFileSerialNumberParty()
-        {
-            // Путь к файлу
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "PdfSerialNumberParty.pdf");
-            // Тип файла - content-type
-            string file_type = "application/pdf";
-            // Имя файла - необязательно
-            
-            return PhysicalFile(file_path, file_type);
-        }
-
-            public IActionResult GetSertificationFile(int id)
+        public IActionResult GetSertificationFile(int id)
         {
             string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Assembly/Sertification/" + Convert.ToString(id) + "Sertification.pdf");
             // Тип файла - content-type

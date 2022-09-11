@@ -12,6 +12,6 @@ namespace OptionWebApplication.Interfaces
         bool Update(Assembly assembly);
         bool Delete(Assembly assembly);
         bool Save();
-        void CreatePdf(Assembly assembly, bool type);
+        void CreatePdf(Assembly assembly);
     }
 }
