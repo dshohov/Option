@@ -1,28 +1,26 @@
 ﻿ @model IEnumerable<Guarentee>
 
+<link rel="stylesheet" href="css/css_wrap.css">
 
-<div class="main_container">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="box_add">
-                <div class="content">
-                        <h2>Создать Гарантию</h2>
-                        <h3></h3>
-                        <p></p>
-                    <a asp-controller="Guarentee" asp-action="Create"><button>Создать Гарантию</button></a>
-                </div>
+<div class="content_container">
+    
+    @foreach(var item in Model)
+    {
+        <div class="box">
+            <div class="content">
+                <h2>@item.SerialNumber</h2>
+                <h3>Тип устройства: @item.TypeDevice</h3>
+                <p>Заказчик: @item.Company</p>
+                <a asp-area="" asp-controller="Guarentee" asp-action="Detail" asp-route-id="@item.Id"><button>Детали</button></a>
             </div>
-            @foreach(var item in Model)
-            {
-                <div class="box">
-                    <div class="content">
-                        <h2>@item.SerialNumber</h2>
-                        <h3>Тип устройства: @item.TypeDevice</h3>
-                        <p>Заказчик: @item.Company</p>
-                        <a asp-area="" asp-controller="Guarentee" asp-action="Detail" asp-route-id="@item.Id"><button>Детали</button></a>
-                    </div>
-                </div>
-            }
         </div>
+    }
+    <div class="box">
+      <div class="content">
+        <h2>Создать Гарантию</h2>
+        <h3></h3>
+        <p></p>
+        <a asp-controller="Guarentee" asp-action="Create"><button>Создать Сборку</button></a>
+      </div>
     </div>
 </div>

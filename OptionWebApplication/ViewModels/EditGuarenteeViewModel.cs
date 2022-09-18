@@ -13,5 +13,6 @@ namespace OptionWebApplication.ViewModels
         public People DiagnosticPeople { get; set; }
         public string? ComplectedWork { get; set; }
         public People RepairPeople { get; set; }
+
     }
 }

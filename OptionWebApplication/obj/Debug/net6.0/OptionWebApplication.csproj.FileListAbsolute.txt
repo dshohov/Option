@@ -140,3 +140,8 @@ C:\Users\User\Desktop\Option\OptionWebApplication\obj\Debug\net6.0\refint\Option
 C:\Users\User\Desktop\Option\OptionWebApplication\obj\Debug\net6.0\OptionWebApplication.pdb
 C:\Users\User\Desktop\Option\OptionWebApplication\obj\Debug\net6.0\OptionWebApplication.genruntimeconfig.cache
 C:\Users\User\Desktop\Option\OptionWebApplication\obj\Debug\net6.0\ref\OptionWebApplication.dll
+C:\Users\User\Desktop\Option\OptionWebApplication\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\User\Desktop\Option\OptionWebApplication\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\User\Desktop\Option\OptionWebApplication\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\User\Desktop\Option\OptionWebApplication\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\User\Desktop\Option\OptionWebApplication\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

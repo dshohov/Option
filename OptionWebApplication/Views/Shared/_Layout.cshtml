@@ -1,51 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - OptionDataBase</title>
+    <title>OptionDataBase</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/OptionWebApplication.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="~/css/css.css">
 </head>
 <body>
-    <header style="background-color: rgb(202, 202, 222);">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OptionWebApplication</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-                <form asp-controller="Home" asp-action="DetailsBySerialNumber" >
-                    <p >
-                        Поиск по серийному номеру: <input class="border-0" maxlength="6" type="text" name="SerialNumber" />
-                        <button style="" type="submit" >Поиск</button>
-                    </p>
-                    
-                </form>
+    <div class="main_container">
+        <div class="header">
+          <div class="header_section">
+
+            <div class="navig">
+              <div class="header_item header_logo">
+              <img src="~/img/logo2.png" width="200" height="70" alt="Иллюстрация">
+              </div>
+              <div class="header_item header_button"><button>Вход</button></div>
+              <div class="header_item header_button"><a asp-area="" asp-controller="Home" asp-action="Index"><button>Главная</button></a></div>
+              <div class="header_item header_button"><a asp-area="" asp-controller="Home" asp-action="Privacy"><button>О программе</button></a></div>
             </div>
-        </nav>
-        
-    </header>
-           @RenderBody()
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - OptionWebApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+            <form asp-controller="Home" asp-action="DetailsBySerialNumber" >
+              <input type="text" name="SerialNumber" placeholder="Поиск по серийному номеру">
+            </form>
+
+          </div>
         </div>
-    </footer>
+           @RenderBody()
+    </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

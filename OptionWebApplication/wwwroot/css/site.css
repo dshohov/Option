@@ -17,3 +17,87 @@ body {
   margin-bottom: 60px;
 }
 
+/*----------------------- HEADER ------------------------------ */
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.header {
+    flex: 0 0 auto;
+    background: #689CD2;
+    color: #fff;
+    width: 99.9%;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0 0 5px #555;
+}
+
+.navig {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_item {
+    padding: 15px 15px;
+    font-size: 20px;
+}
+
+.header_logo {
+    font-size: 30px;
+    color: #000;
+    font-style: bold;
+    margin-right: 100px;
+    margin-left: 50px;
+}
+
+.header_button button {
+    cursor: pointer;
+    position: relative;
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    transition: .5s;
+    font-size: 12px;
+    border-radius: 5%;
+}
+
+    .header_button button:hover {
+        color: #000;
+        background-color: #fff;
+    }
+
+/*----------------------- Поле поиска ------------------------------ */
+
+form {
+    width: auto;
+    float: right;
+    margin-right: 30px;
+}
+
+input {
+    width: 250px;
+    height: 35px;
+    padding-left: 15px;
+    border-radius: 50px;
+    border: 1.5px solid #000000;
+    background: #F9F0DA;
+    outline: none;
+    position: relative;
+    transition: .3s linear;
+}
+
+    input:focus {
+        width: 320px;
+        border: 2px solid #eebd1c;
+    }

@@ -51,6 +51,8 @@ namespace OptionWebApplication.Controllers
 
            
             assembly.CheckEngenire = false;
+            assembly.Sertification = "0s";
+            assembly.Signature = "0";
             assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString( Convert.ToInt32(assembly.SerialNumber) + assembly.Party -1); 
             _assemblyRepository.Add(assembly);
             return RedirectToAction("Index");
@@ -89,7 +91,8 @@ namespace OptionWebApplication.Controllers
                 Component = assembly.Component,
                 ChangeComponents = assembly.ChangeComponents,
                 OtherWork = assembly.OtherWork,
-                
+                Sertification = assembly.Signature,
+                Signature = assembly.Signature,
                 Step1 = assembly.Step1,
                 Step2 = assembly.Step2,
                 Step3 = assembly.Step3,
@@ -125,7 +128,7 @@ namespace OptionWebApplication.Controllers
                 Component = assemblyVM.Component,
                 ChangeComponents = assemblyVM.ChangeComponents,
                 OtherWork = assemblyVM.OtherWork,
-
+                
                 Step1 = assemblyVM.Step1,
                 Step2 = assemblyVM.Step2,
                 Step3 = assemblyVM.Step3,
@@ -136,6 +139,7 @@ namespace OptionWebApplication.Controllers
                 People3 = assemblyVM.People3,
                 People4 = assemblyVM.People4,
                 People5 = assemblyVM.People5
+                
             };
             if (uploadedFile != null)
             {
@@ -149,6 +153,7 @@ namespace OptionWebApplication.Controllers
                 AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.Id + "Signature"), Path = path };
                 _context.Files.Add(file);
                 _context.SaveChanges();
+                assembly.Signature = "1";
             }
             if (setificateFile != null)
             {
@@ -161,7 +166,8 @@ namespace OptionWebApplication.Controllers
                 }
                 AssemblyFiles file = new AssemblyFiles { Name = Convert.ToString(assembly.Id + "Sertification"), Path = path };
                 _context.Files.Add(file);
-                _context.SaveChanges();   
+                _context.SaveChanges();
+                assembly.Sertification = "1";
             }
             assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString(Convert.ToInt32(assembly.SerialNumber) + assembly.Party - 1);
             _assemblyRepository.Update(assembly);

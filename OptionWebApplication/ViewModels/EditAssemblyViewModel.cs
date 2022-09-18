@@ -22,6 +22,7 @@ namespace OptionWebApplication.ViewModels
         public People? People3 { get; set; }
         public People? People4 { get; set; }
         public People? People5 { get; set; }
-
+        public string? Sertification { get; set; }
+        public string? Signature { get; set; }
     }
 }
