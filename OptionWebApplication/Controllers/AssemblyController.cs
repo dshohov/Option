@@ -53,7 +53,14 @@ namespace OptionWebApplication.Controllers
             assembly.CheckEngenire = false;
             assembly.Sertification = "0s";
             assembly.Signature = "0";
-            assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString( Convert.ToInt32(assembly.SerialNumber) + assembly.Party -1); 
+            if (assembly.Party > 1)
+            {
+                assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString(Convert.ToInt32(assembly.SerialNumber) + assembly.Party - 1);
+            }
+            else
+            {
+                assembly.PartySerialNumber = assembly.SerialNumber;
+            }
             _assemblyRepository.Add(assembly);
             return RedirectToAction("Index");
         }
@@ -169,7 +176,14 @@ namespace OptionWebApplication.Controllers
                 _context.SaveChanges();
                 assembly.Sertification = "1";
             }
-            assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString(Convert.ToInt32(assembly.SerialNumber) + assembly.Party - 1);
+            if (assembly.Party > 1)
+            {
+                assembly.PartySerialNumber = assembly.SerialNumber + "-" + Convert.ToString(Convert.ToInt32(assembly.SerialNumber) + assembly.Party - 1);
+            }
+            else
+            {
+                assembly.PartySerialNumber = assembly.SerialNumber;
+            }
             _assemblyRepository.Update(assembly);
             return RedirectToAction("Index");
         }

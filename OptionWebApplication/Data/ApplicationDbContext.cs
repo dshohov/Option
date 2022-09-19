@@ -13,5 +13,6 @@ namespace OptionWebApplication.Data
         public DbSet<Assembly> Assemblies { get; set; }
         public DbSet<Guarentee> Guarentes { get; set; }
         public DbSet<AssemblyFiles> Files { get; set; }
+        public DbSet<Sertification> Sertifications { get; set; }
     }
 }

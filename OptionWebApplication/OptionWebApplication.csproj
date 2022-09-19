@@ -31,6 +31,7 @@
     <Folder Include="wwwroot\Files\Assembly\Signature\" />
     <Folder Include="wwwroot\Files\Guarenrtee\Sertification\" />
     <Folder Include="wwwroot\Files\Guarenrtee\Signature\" />
+    <Folder Include="wwwroot\Files\Sertification\" />
   </ItemGroup>
 
 </Project>

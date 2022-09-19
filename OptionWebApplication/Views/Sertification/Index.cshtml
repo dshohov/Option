@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Sertification>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<link rel="stylesheet" href="css/css_wrap.css">
+
+<div class="content_container">
+    
+    @foreach ( var item in Model)
+    {
+        if (@item.State == false)
+        {
+            <div class="box">
+            <div class="content">
+                <h2>@item.Id</h2>
+                <h3></h3>
+                <p></p>
+                <a asp-controller="Sertification" asp-action="Detail" asp-route-id="@item.Id"><button>Детали</button></a>                
+            </div>
+        </div>
+        }
+        
+    }
+    <div class="box" style="background-color: rgb(255, 216, 0);">
+      <div class="content">
+        <h2></h2>
+        <h3>Добавить Cпецификацию</h3>
+        <p></p>
+        <a asp-controller="Sertification" asp-action="Create"><button>Создать Спецификацию</button></a>
+      </div>
+    </div>
+    <div class="box" style="background-color: rgb(74, 189, 51);">
+      <div class="content" >
+        <h2></h2>
+        <h3>Старые спецификации</h3>
+        <p></p>
+        <a asp-controller="Sertification" asp-action="OldSertification"><button>Перейти</button></a>
+      </div>
+    </div>
+</div>

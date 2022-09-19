@@ -1,0 +1,28 @@
+﻿@using OptionWebApplication.ViewModels
+@model EditSertificationViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<link rel="stylesheet" href="~/css/css.css">
+
+<a asp-controller="Sertification" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
+<form method="post" asp-action="Edit" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name">Имя: </label>
+        <input asp-for="Name" type="text" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <h3>Прикрепите файл с подписями сотрудников</h3>
+        <input type="file" name="uploadedFileSertification" /><br>
+    </div>
+    <div class="form-group">
+        <label asp-for="State">Выполнено: </label>
+        <input asp-for="State" type="checkbox"/>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Изменить</button>
+    
+</form>

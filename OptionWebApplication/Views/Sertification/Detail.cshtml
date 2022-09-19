@@ -1,0 +1,22 @@
+﻿@model Sertification
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<link rel="stylesheet" href="~/css/css.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <a asp-controller="Sertification" asp-action="Index" class="btn btn-sm btn-warning mb-3 text-white btn-outline-secondary">Назад</a>
+            <h3 class="my-3">Id: @Model.Id</h3>
+            <h4>@Model.Name</h4>
+            
+        </div>
+    </div>
+</div>
+<a asp-controller="Sertification" asp-action="Edit" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-warning ">Изменить</a>
+<a asp-controller="Sertification" asp-action="Delete" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Удалить</a>
+<a asp-controller="Sertification" asp-action="GetSertification" asp-route-id="@Model.Id" class="border-3 btn btn-sm btn-outline-danger ">Печать спецефикации</a>
