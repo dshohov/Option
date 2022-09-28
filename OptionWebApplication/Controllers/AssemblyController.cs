@@ -117,12 +117,6 @@ namespace OptionWebApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, EditAssemblyViewModel assemblyVM, IFormFile uploadedFile, IFormFile setificateFile)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    ModelState.AddModelError("", "Failed to edit club");
-            //    return View("Edit", assemblyVM);
-            //}
-
             var assembly = new Assembly
             {
                 Id = id,
@@ -151,9 +145,9 @@ namespace OptionWebApplication.Controllers
             if (uploadedFile != null)
             {
                 // путь к папке Files
-                string path = "/Files/Assembly/Signature/" + Convert.ToString(assembly.Id + "Signature.pdf");
+                string path = "C:/inetpub/sites/app.option/wwwroot/Files/Assembly/Signature/" + Convert.ToString(assembly.Id + "Signature.pdf");
                 // сохраняем файл в папку Files в каталоге wwwroot
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                using (var fileStream = new FileStream( path, FileMode.Create))
                 {
                     await uploadedFile.CopyToAsync(fileStream);
                 }
@@ -165,9 +159,9 @@ namespace OptionWebApplication.Controllers
             if (setificateFile != null)
             {
                 // путь к папке Files
-                string path = "/Files/Assembly/Sertification/" + Convert.ToString(assembly.Id + "Sertification.pdf");
+                string path = "C:/inetpub/sites/app.option/wwwroot/Files/Assembly/Sertification/" + Convert.ToString(assembly.Id + "Sertification.pdf");
                 // сохраняем файл в папку Files в каталоге wwwroot
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await setificateFile.CopyToAsync(fileStream);
                 }
@@ -190,7 +184,7 @@ namespace OptionWebApplication.Controllers
         public IActionResult GetFileSerialNumber()
         {
             // Путь к файлу
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "PdfAssembly.pdf");
+            string file_path = "C:/inetpub/sites/app.option/wwwroot/Files/Document/" + "PdfAssembly.pdf";
             // Тип файла - content-type
             string file_type = "application/pdf";
             // Имя файла - необязательно
@@ -198,7 +192,7 @@ namespace OptionWebApplication.Controllers
         }
         public IActionResult GetSertificationFile(int id)
         {
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Assembly/Sertification/" + Convert.ToString(id) + "Sertification.pdf");
+            string file_path = "C:/inetpub/sites/app.option/wwwroot/Files/Assembly/Sertification/" + Convert.ToString(id) + "Sertification.pdf";
             // Тип файла - content-type
             string file_type = "application/pdf";
             // Имя файла - необязательно
@@ -208,7 +202,7 @@ namespace OptionWebApplication.Controllers
         }
         public IActionResult GetSignatureFile(int id)
         {
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Assembly/Signature/" + Convert.ToString(id) + "Signature.pdf");
+            string file_path = "C:/inetpub/sites/app.option/wwwroot/Files/Assembly/Signature/" + Convert.ToString(id) + "Signature.pdf";
             // Тип файла - content-type
             string file_type = "application/pdf";
             // Имя файла - необязательно

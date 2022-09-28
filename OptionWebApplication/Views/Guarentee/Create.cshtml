@@ -1,72 +1,74 @@
 ﻿@using OptionWebApplication.Data.Enum
 @model Guarentee
 
-<link rel="stylesheet" href="~/css/css.css">
+<link rel="stylesheet" href="~/css/css_assembl.css">
+
 
 
 <a asp-controller="Guarentee" asp-action="Index" class="btn btn-sm btn-warning text-white mb-3 btn-outline-secondary">Назад</a> 
 <form method="post" asp-action="Create">
-    <div class="form-group">
-        <label asp-for="SerialNumber">Серийный номер: </label>
-        <input asp-for="SerialNumber" class="form-control" type="text" maxlength="6" placeholder="111111"/>
-        <span asp-validation-for="SerialNumber" class="text-danger"></span> 
-    </div>
-    <div class="form-group">
-        <label asp-for="Company">Заказчик: </label>
-        <input asp-for="Company" class="form-control" placeholder="Персональный компьютер"/>
-        <span asp-validation-for="Company" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="TypeDevice">Тип девайса: </label>
-         <select asp-for="TypeDevice" asp-items="@Html.GetEnumSelectList<TypeDevice>()" class="form-control">
-            <option></option>
-        </select>
-        <span asp-validation-for="TypeDevice" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DateIn">Дата прихода: </label>
-        <input asp-for="DateIn" type="date" class="form-control" placeholder="22.05.2022"/>
-        <span asp-validation-for="DateIn" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DateOut">Дата отправки: </label>
-        <input asp-for="DateOut" type="date" class="form-control" placeholder="22.05.2023"/>
-        <span asp-validation-for="DateOut" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Details">Рекламация: </label>
-        <input asp-for="Details" class="form-control" placeholder="не включаеться"/>
-        <span asp-validation-for="Details" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="FaultDetection">Выявленые не исправности: </label>
-        <input asp-for="FaultDetection" class="form-control" placeholder="Не работает оперативная память"/>
-        <span asp-validation-for="FaultDetection" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Conclusion">Заключение: </label>
-        <input asp-for="Conclusion" class="form-control" placeholder="Замена оперативной паямти"/>
-        <span asp-validation-for="Conclusion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DiagnosticPeople">Диагностику провел: </label>
-        <select asp-for="DiagnosticPeople" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
-            <option></option>
-        </select>
-        <span asp-validation-for="DiagnosticPeople" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ComplectedWork">Выполненая работа: </label>
-        <input asp-for="ComplectedWork" class="form-control" placeholder="Замена оперативной памяти, чистка корпуса от пыли"/>
-        <span asp-validation-for="ComplectedWork" class="text-danger"></span>
-    </div>
+     <div class="content_container">
+        <div class="in">
+            <p>Серийный номер::</p>
+            <input asp-for="SerialNumber" type="text" class="input_data" placeholder="Серийный номер...">
+        </div>
+        
+        <div class="in">
+            <p>Заказчик:</p>
+            <input asp-for="Company" type="text" class="input_data" placeholder="Наименование организации">
+        </div>
+        
+        <div class="in">
+            <p>Тип устройства:</p>
+            <select asp-for="TypeDevice" asp-items="@Html.GetEnumSelectList<TypeDevice>()" class="input_data">
+                <option></option>
+            </select>
+        </div>
+        
+        <div class="in">
+            <p>Дата прихода: </p>
+            <input asp-for="DateIn" type="date" class="input_data" placeholder="xx.xx.xxxx">
+        </div>
+        
+        <div class="in">
+            <p>Дата отправки:</p>
+            <input asp-for="DateOut" type="date" class="input_data" placeholder="xx.xx.xxxx">
+        </div>
+        
+        <div class="in">
+            <p>Рекламация:</p>
+            <input asp-for="Details" type="text" class="input_data" placeholder="Наименование проблемы девайса">
+        </div>
+        
+        <div class="in">
+            <p>Выявленые не исправности:</p>
+            <input asp-for="FaultDetection" type="text" class="input_data" placeholder="Причина не работоспособности">
+        </div>
+        
+        <div class="in">
+            <p>Заключение: </p>
+            <input asp-for="Conclusion" type="text" class="input_data" placeholder="Описание проблемы и способ её устранения">
+        </div>
 
-    <div class="form-group">
-        <label asp-for="RepairPeople">Ремонт провел: </label>
-        <select asp-for="RepairPeople" asp-items="@Html.GetEnumSelectList<People>()" class="form-control">
-            <option></option>
-        </select>
-        <span asp-validation-for="RepairPeople" class="text-danger"></span>
+        <div class="in">
+            <p>Диагностику провел:</p>
+            <select asp-for="DiagnosticPeople" asp-items="@Html.GetEnumSelectList<People>()" class="input_data">
+                <option></option>
+            </select>
+        </div>
+        
+        <div class="in">
+            <p>Выполненая работа: </p>
+            <input asp-for="ComplectedWork" type="text" class="input_data" placeholder="Что удалось устранить и что было выполнено">
+        </div>
+    
+        <div class="in">
+            <p>Ремонт провел:</p>
+            <select asp-for="RepairPeople" asp-items="@Html.GetEnumSelectList<People>()" class="input_data">
+                <option></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Создать</button>
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Создать</button>
 </form>

@@ -8,101 +8,113 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OptionWebApplication
 build_property.RootNamespace = OptionWebApplication
-build_property.ProjectDir = C:\Users\User\Desktop\Option\OptionWebApplication\
+build_property.ProjectDir = C:\New Option\OptionWebApplication\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\Option\OptionWebApplication
+build_property.MSBuildProjectDirectory = C:\New Option\OptionWebApplication
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Assembly/Create.cshtml]
+[C:/New Option/OptionWebApplication/Views/Assembly/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Assembly/Delete.cshtml]
+[C:/New Option/OptionWebApplication/Views/Assembly/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Assembly/Detail.cshtml]
+[C:/New Option/OptionWebApplication/Views/Assembly/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Assembly/Edit.cshtml]
+[C:/New Option/OptionWebApplication/Views/Assembly/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Assembly/Index.cshtml]
+[C:/New Option/OptionWebApplication/Views/Assembly/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzZW1ibHlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Guarentee/Create.cshtml]
+[C:/New Option/OptionWebApplication/Views/Guarentee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Guarentee/Delete.cshtml]
+[C:/New Option/OptionWebApplication/Views/Guarentee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Guarentee/Detail.cshtml]
+[C:/New Option/OptionWebApplication/Views/Guarentee/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Guarentee/Edit.cshtml]
+[C:/New Option/OptionWebApplication/Views/Guarentee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Guarentee/Index.cshtml]
+[C:/New Option/OptionWebApplication/Views/Guarentee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3VhcmVudGVlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Home/ADetailsBySerialNumber.cshtml]
+[C:/New Option/OptionWebApplication/Views/Home/ADetailsBySerialNumber.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBRGV0YWlsc0J5U2VyaWFsTnVtYmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Home/GDetailsBySerialNumber.cshtml]
+[C:/New Option/OptionWebApplication/Views/Home/GDetailsBySerialNumber.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHRGV0YWlsc0J5U2VyaWFsTnVtYmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Home/Index.cshtml]
+[C:/New Option/OptionWebApplication/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Home/Privacy.cshtml]
+[C:/New Option/OptionWebApplication/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Sertification/Create.cshtml]
+[C:/New Option/OptionWebApplication/Views/Sertification/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydGlmaWNhdGlvblxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Sertification/Detail.cshtml]
+[C:/New Option/OptionWebApplication/Views/Sertification/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydGlmaWNhdGlvblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/New Option/OptionWebApplication/Views/Sertification/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydGlmaWNhdGlvblxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Sertification/Index.cshtml]
+[C:/New Option/OptionWebApplication/Views/Sertification/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydGlmaWNhdGlvblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/New Option/OptionWebApplication/Views/Sertification/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydGlmaWNhdGlvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Shared/Error.cshtml]
+[C:/New Option/OptionWebApplication/Views/Sertification/OldSertification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydGlmaWNhdGlvblxPbGRTZXJ0aWZpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/New Option/OptionWebApplication/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/New Option/OptionWebApplication/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Statistics/Index.cshtml]
+[C:/New Option/OptionWebApplication/Views/Statistics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/_ViewImports.cshtml]
+[C:/New Option/OptionWebApplication/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/_ViewStart.cshtml]
+[C:/New Option/OptionWebApplication/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/Option/OptionWebApplication/Views/Shared/_Layout.cshtml]
+[C:/New Option/OptionWebApplication/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ecw9jdgi0r

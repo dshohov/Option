@@ -1,14 +1,13 @@
 ﻿@model Sertification
 
+<link rel="stylesheet" href="~/css/css_assembl.css">
+
 <form method="post" asp-action="Create" enctype="multipart/form-data">
-    <div class="form-group">
-        <label asp-for="Name">Имя: </label>
-        <input asp-for="Name" type="text" class="form-control"/>
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <h3>Прикрепите файл с подписями сотрудников</h3>
-        <input type="file" name="uploadedFileSertification" /><br>
+    <div class="content_container">
+        <div class="in">
+            <p>Прикрепите файл с подписями сотрудников</p>
+            <input type="file" class="input_data" name="uploadedFileSertification" />
+        </div>
     </div>
     <button type="submit" class="btn btn-primary mt-2">Создать</button>
 </form>

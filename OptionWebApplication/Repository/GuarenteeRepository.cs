@@ -197,7 +197,7 @@ namespace OptionWebApplication.Repository
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
             pdfRenderer.Document = document;
             pdfRenderer.RenderDocument();
-            pdfRenderer.PdfDocument.Save("PdfGuarentee.pdf");
+            pdfRenderer.PdfDocument.Save("C:/inetpub/sites/app.option/wwwroot/Files/Document/PdfGuarentee.pdf");
             // сохраняем
         }
     }

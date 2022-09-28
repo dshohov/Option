@@ -185,7 +185,7 @@ namespace OptionWebApplication.Repository
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true, PdfFontEmbedding.Always);
             pdfRenderer.Document = document;
             pdfRenderer.RenderDocument();
-            pdfRenderer.PdfDocument.Save("PdfAssembly.pdf");
+            pdfRenderer.PdfDocument.Save("C:/inetpub/sites/app.option/wwwroot/Files/Document/PdfAssembly.pdf");
 // сохраняем
         }
         public MigraDoc.DocumentObjectModel.Tables.Table createTable(Assembly assembly)

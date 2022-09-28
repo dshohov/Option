@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\sites\app.option</_PublishTargetUrl>
+    <History>True|2022-09-25T15:33:42.9788932Z;True|2022-09-25T18:30:47.4909101+03:00;False|2022-09-25T18:30:24.4704650+03:00;True|2022-09-25T18:17:05.8208168+03:00;False|2022-09-25T18:16:44.0723308+03:00;True|2022-09-25T17:55:29.9824966+03:00;False|2022-09-25T17:55:14.7582069+03:00;True|2022-09-25T17:50:51.0411229+03:00;False|2022-09-25T17:50:36.1056595+03:00;True|2022-09-25T17:45:04.4930920+03:00;</History>
+  </PropertyGroup>
+</Project>

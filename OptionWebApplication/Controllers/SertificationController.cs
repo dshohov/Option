@@ -89,7 +89,7 @@ namespace OptionWebApplication.Controllers
         }
         public IActionResult GetSertification(int id)
         {
-            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/Users/User/Desktop/Option/OptionWebApplication/wwwroot/Files/Sertification/" + Convert.ToString(id) + "Sertification.pdf");
+            string file_path = Path.Combine(_appEnvironment.ContentRootPath, "C:/inetpub/sites/app.option/wwwroot/Files/Sertification/" + Convert.ToString(id) + "Sertification.pdf");
             // Тип файла - content-type
             string file_type = "application/pdf";
             // Имя файла - необязательно
@@ -124,7 +124,7 @@ namespace OptionWebApplication.Controllers
             if (uploadedFileSertification != null)
             {
                 // путь к папке Files
-                string path = "/Files/Sertification/" + Convert.ToString(sertification.Id + "Sertification.pdf");
+                string path = "C:/inetpub/sites/app.option/wwwroot/Files/Sertification/" + Convert.ToString(sertification.Id + "Sertification.pdf");
                 // сохраняем файл в папку Files в каталоге wwwroot
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {

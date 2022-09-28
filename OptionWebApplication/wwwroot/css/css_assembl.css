@@ -1,0 +1,137 @@
+﻿body{
+  margin: 0px;
+}
+
+
+.main_container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: rgb(220, 220, 238);
+  width: 100%;
+}
+
+
+
+
+.content_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.input_data {
+  width: 500px;
+  height: 35px;
+  padding-left: 15px;
+  border-radius: 50px;
+  border: 1.5px solid #000000;
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+}
+
+
+.input_data:focus {
+  width: 600px;
+  border: 2px solid #eebd1c;
+}
+
+.in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  font-family: inherit;
+}
+
+.in p {
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.header {
+  flex: 0 0 auto;
+  background: #689CD2;
+  color:#fff;
+  width: 99.9%;
+  max-height: 100px;
+  border: 1px solid rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px #555;
+
+}
+
+.navig {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_item {
+  padding: 15px 15px;
+  font-size: 20px;
+}
+  
+.header_logo {
+  font-size: 30px;
+  color: #000;
+  font-style: bold;
+  margin-right: 100px;
+  margin-left: 50px;
+}
+
+.header_button button {
+  cursor: pointer;
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  transition: .5s;
+  font-size: 12px;
+  border-radius: 5%;
+}
+
+.header_button button:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+form {
+  width: auto;
+  float: right;
+  margin-right: 30px;
+}
+
+input {
+  width: 250px;
+  height: 35px;
+  padding-left: 15px;
+  border-radius: 50px;
+  border: 1.5px solid #000000;
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+}
+
+input:focus {
+  width: 320px;
+  border: 2px solid #eebd1c;
+}
