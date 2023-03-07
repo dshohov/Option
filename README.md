@@ -7,7 +7,6 @@ My first small project for a company. The project was written at the request of 
 - [Contributing](#contributing)
 - [Why was this project developed](#why-was-this-project-developed)
 - [The project team](#the-project-team)
-- [Sources](#sources)
 
 ## Technologies
 - [C#](https://learn.microsoft.com/en-us/dotnet/csharp/)
