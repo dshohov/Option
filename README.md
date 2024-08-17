@@ -1,6 +1,5 @@
 # Option
-My first small project for a company. The project was written at the request of the company to improve its internal work. At the time of writing the project, I didn't know much that I know now, but the project proved to me that I can write web applications for companies even now. I did the development myself and I myself communicated with the customer. At the end of development, the application was released on the company's server using IIS.
-
+Description: Developed a web application to automate the operations of a company engaged in the production and repair of computer equipment. The application includes a task management system, the creation of a multi-level reporting system, data storage implementation, as well as document storage and the ability to sign documents through the application.
 ## Content
 - [Technologies](#Technologies)
 - [Helpers](#Helpers)
